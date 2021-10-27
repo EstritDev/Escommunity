@@ -5,10 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
 
                     return;
                 }
-                if(txtUser.getText().toString() != user || txtPass.getText().toString() != pass){
-
+                if(!txtUser.getText().toString().equals(user) || !txtPass.getText().toString().equals(pass)){
+                    Toast.makeText(getApplicationContext(), "Dados de inicio de sessão inválidos, tente novamente", Toast.LENGTH_LONG).show();
                     return;
                 }
 
