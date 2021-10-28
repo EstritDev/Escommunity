@@ -26,6 +26,7 @@ public class PaginaInicial extends AppCompatActivity {
 
         //Labels
         TextView lblPosts = findViewById(R.id.lblPosts);
+        lblPosts.append("\n");
 
         //Buttons
         Button btnPostar = findViewById(R.id.btnPostar);
@@ -48,11 +49,11 @@ public class PaginaInicial extends AppCompatActivity {
                         Date agora = new Date();
                         SimpleDateFormat sdf = new SimpleDateFormat("K:mm a");
                         String horas = sdf.format(agora);
-                        lblPosts.setTextSize(38);
-                        lblPosts.append(utilizador.getUser() + "\n");
-                        lblPosts.setTextSize(14);
+                        lblPosts.setTextSize(20);
+                        lblPosts.append(utilizador.getUser() + ":\n");
+                        //lblPosts.setTextSize(14);
                         lblPosts.append(txtMsg.getText().toString());
-                        lblPosts.setTextSize(7);
+                        //lblPosts.setTextSize(7);
                         lblPosts.append("                               "+ horas);
                         lblPosts.append("\n");
                     }
