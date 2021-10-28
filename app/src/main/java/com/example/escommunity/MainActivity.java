@@ -45,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(MainActivity.this, PaginaInicial.class);
-
                 intent.putExtra("user", user);
                 intent.putExtra("memorizar", memorizar);
 
