@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 String pass = "admin123";
                 Boolean memorizar = cboxMemorizar.isChecked();
                 if(txtUser.getText().length() <= 0 || txtPass.getText().length() <= 0){
-
+                    Toast.makeText(getApplicationContext(), "Deves preencher todos os campos.", Toast.LENGTH_LONG).show();
                     return;
                 }
                 if(!txtUser.getText().toString().equals(user) || !txtPass.getText().toString().equals(pass)){
