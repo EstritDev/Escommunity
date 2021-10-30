@@ -1,78 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foregroundTint="#000000"
-
-    tools:context=".MainActivity">
+    tools:context=".RegistarActivity">
 
     <TextView
-        android:id="@+id/lblTitulo"
+        android:id="@+id/lblTitulo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="100dp"
-        android:text="Escommunity"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="128dp"
+        android:text="Registar"
         android:textColor="#00A6D4"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/cboxMemorizar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="28dp"
-        android:text="Memorizar palavra-passe"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPass" />
-
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnRegistar"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:layout_marginStart="112dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="528dp"
         android:backgroundTint="#00A6D4"
-        android:text="Login"
+        android:text="Registar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cboxMemorizar" />
-
-    <Button
-        android:id="@+id/btnCriarConta"
-        android:layout_width="231dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#00A6D4"
-        android:text="Podes criar uma conta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblOu" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txtPass"
+        android:id="@+id/txtPassReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Palavra-passe"
         android:inputType="textPassword"
         android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUser" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
     <EditText
-        android:id="@+id/txtUser"
+        android:id="@+id/txtConfPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Palavra-passe"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassReg" />
+
+    <EditText
+        android:id="@+id/txtUtilizador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="244dp"
         android:ems="10"
         android:hint="Utilizador"
         android:inputType="textPersonName"
@@ -80,14 +69,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/lblOu"
+    <EditText
+        android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="96dp"
         android:layout_marginTop="20dp"
-        android:text="--------ou--------"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUtilizador" />
 
+    <TextView
+        android:id="@+id/lblJaTemConta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="40dp"
+        android:text="Ja tens conta?"
+        android:textColor="#0048FF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

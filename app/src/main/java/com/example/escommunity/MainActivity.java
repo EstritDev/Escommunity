@@ -20,11 +20,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnLogin;
+        //Buttons
+        Button btnLogin, btnCriarConta;
+
+        //Text boxes
         EditText txtUser, txtPass;
+
+        //Check boxes
         CheckBox cboxMemorizar;
 
         btnLogin = findViewById(R.id.btnLogin);
+        btnCriarConta = findViewById(R.id.btnCriarConta);
         txtUser = findViewById(R.id.txtUser);
         txtPass = findViewById(R.id.txtPass);
         cboxMemorizar = findViewById(R.id.cboxMemorizar);
@@ -47,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, PaginaInicial.class);
                 intent.putExtra("user", user);
                 intent.putExtra("memorizar", memorizar);
+
+                startActivity(intent);
+            }
+        });
+
+        btnCriarConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, RegistarActivity.class);
 
                 startActivity(intent);
             }
