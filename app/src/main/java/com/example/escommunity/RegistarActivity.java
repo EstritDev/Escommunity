@@ -48,6 +48,9 @@ public class RegistarActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "O email deve pertencer á escola", Toast.LENGTH_LONG).show();
                     return;
                 }
+
+
+                Toast.makeText(getApplicationContext(), "Utilizador registado com sucesso!", Toast.LENGTH_LONG).show();
             }
         });
 
