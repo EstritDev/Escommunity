@@ -1,12 +1,15 @@
 package com.example.escommunity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -30,6 +33,9 @@ public class PaginaInicial extends AppCompatActivity {
 
         //Buttons
         Button btnPostar = findViewById(R.id.btnPostar);
+        ConstraintLayout btnHome = findViewById(R.id.btnHome);
+        ConstraintLayout btnPerfil = findViewById(R.id.btnPerfil);
+        ConstraintLayout btnMessagens = findViewById(R.id.btnMessagens);
 
         //EditTexts
         EditText txtMsg = findViewById(R.id.txtMsg);
@@ -61,5 +67,34 @@ public class PaginaInicial extends AppCompatActivity {
             }
         });
 
+        btnPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                /*Intent intent = new Intent(PaginaInicial.this,PerfilActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);*/
+
+                Toast.makeText(getApplicationContext(),"Ação indisponível", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnMessagens.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(),"Ação indisponível", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    @Override
+    public void onBackPressed() {
+        Boolean memorizar = getIntent().getBooleanExtra("memorizar",false);
+        String user = getIntent().getStringExtra("user");
+        if(memorizar){
+            Intent intent = new Intent(PaginaInicial.this, PaginaInicial.class);
+            intent.putExtra("user", user);
+            intent.putExtra("memorizar", memorizar);
+            startActivity(intent);
+        }
     }
 }

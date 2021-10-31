@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Escommunity">
         <activity
+            android:name=".PerfilActivity"
+            android:exported="true" />
+        <activity
             android:name=".RegistarActivity"
             android:exported="true" />
         <activity
