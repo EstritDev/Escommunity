@@ -1,9 +1,11 @@
 package com.example.escommunity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,8 @@ public class PaginaInicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_inicial);
 
+        //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         //Variáveis
         String user = getIntent().getStringExtra("user");
@@ -39,6 +43,7 @@ public class PaginaInicial extends AppCompatActivity {
 
         //EditTexts
         EditText txtMsg = findViewById(R.id.txtMsg);
+
 
         btnPostar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,11 +75,10 @@ public class PaginaInicial extends AppCompatActivity {
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*Intent intent = new Intent(PaginaInicial.this,PerfilActivity.class);
+                Intent intent = new Intent(PaginaInicial.this,PerfilActivity.class);
                 intent.putExtra("user", user);
-                startActivity(intent);*/
+                startActivity(intent);
 
-                Toast.makeText(getApplicationContext(),"Ação indisponível", Toast.LENGTH_LONG).show();
             }
         });
 

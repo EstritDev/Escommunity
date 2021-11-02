@@ -7,24 +7,14 @@
     tools:context=".PerfilActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="316dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-    <ImageView
         android:id="@+id/imageView"
         android:layout_width="138dp"
         android:layout_height="138dp"
         android:layout_marginStart="140dp"
         android:layout_marginTop="152dp"
-        android:background="#00FFFFFF"
-        android:backgroundTint="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user"
         tools:srcCompat="@drawable/user" />
 
     <TextView
@@ -72,4 +62,5 @@
         app:layout_constraintTop_toTopOf="parent">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

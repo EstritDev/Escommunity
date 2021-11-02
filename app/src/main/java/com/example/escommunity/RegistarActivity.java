@@ -1,7 +1,9 @@
 package com.example.escommunity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +17,9 @@ public class RegistarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar);
+
+        //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         //labels
         TextView lblJaTemConta;
@@ -44,13 +49,25 @@ public class RegistarActivity extends AppCompatActivity {
                 }
                 String email = txtEmail.getText().toString();
                 String[] emailSplit = email.split("@");
-                if(!emailSplit[1].equals("alunos.sefo.pt")){
-                    Toast.makeText(getApplicationContext(), "O email deve pertencer á escola", Toast.LENGTH_LONG).show();
+                email = emailSplit[1];
+                if(!email.equals("alunos.sefo.pt")){
+                    Toast.makeText(getApplicationContext(), "O email deve pertencer á escola!\nemail: " +email, Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(txtPassReg.getText().length() <= 6){
+                    Toast.makeText(getApplicationContext(), "A palavra-passe deve conter pelo menos 6 digitos.", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(txtPassReg.getText() != txtConfPass.getText()){
+                    Toast.makeText(getApplicationContext(),"As palavras-passe devem ser iguais.", Toast.LENGTH_LONG).show();
                     return;
                 }
 
-
                 Toast.makeText(getApplicationContext(), "Utilizador registado com sucesso!", Toast.LENGTH_LONG).show();
+                String user = txtUtilizador.getText().toString();
+                Intent intent = new Intent(RegistarActivity.this, PaginaInicial.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
             }
         });
 
