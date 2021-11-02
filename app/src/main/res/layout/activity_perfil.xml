@@ -4,10 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:textAlignment="center"
     tools:context=".PerfilActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgHeader"
+        android:layout_width="412dp"
+        android:layout_height="206dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@color/purple_700"
+        tools:srcCompat="@color/purple_700" />
+
+    <ImageView
+        android:id="@+id/imgPfp"
         android:layout_width="138dp"
         android:layout_height="138dp"
         android:layout_marginStart="140dp"
@@ -22,15 +34,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:text="Nome de utilizador"
+        android:textAlignment="center"
+        android:textDirection="ltr"
+        android:textIsSelectable="false"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPfp" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btnEditarPerfil"
         android:layout_width="46dp"
         android:layout_height="45dp"
         android:layout_marginStart="88dp"
@@ -38,7 +53,7 @@
         android:backgroundTint="#00FFFFFF"
         android:foregroundTint="#00FFFFFF"
         android:scaleType="centerInside"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/imgPfp"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pencil__1_" />
 

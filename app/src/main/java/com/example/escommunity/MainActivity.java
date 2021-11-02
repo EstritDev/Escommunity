@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(MainActivity.this, PaginaInicial.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("user", user);
                 intent.putExtra("memorizar", memorizar);
 
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, RegistarActivity.class);
-
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intent);
             }
         });

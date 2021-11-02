@@ -54,11 +54,11 @@ public class RegistarActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "O email deve pertencer á escola!\nemail: " +email, Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(txtPassReg.getText().length() <= 6){
+                if(txtPassReg.getText().length() < 6){
                     Toast.makeText(getApplicationContext(), "A palavra-passe deve conter pelo menos 6 digitos.", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(txtPassReg.getText() != txtConfPass.getText()){
+                if(!txtPassReg.getText().toString().equals(txtConfPass.getText().toString())){
                     Toast.makeText(getApplicationContext(),"As palavras-passe devem ser iguais.", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -66,6 +66,7 @@ public class RegistarActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Utilizador registado com sucesso!", Toast.LENGTH_LONG).show();
                 String user = txtUtilizador.getText().toString();
                 Intent intent = new Intent(RegistarActivity.this, PaginaInicial.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("user", user);
                 startActivity(intent);
             }
@@ -74,6 +75,7 @@ public class RegistarActivity extends AppCompatActivity {
         lblJaTemConta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                getWindow().setWindowAnimations(0);
                 finish();
             }
         });
