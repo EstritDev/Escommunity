@@ -19,6 +19,9 @@ public class PerfilActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
 
+        //Tirar as animações
+        getWindow().setWindowAnimations(0);
+
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 

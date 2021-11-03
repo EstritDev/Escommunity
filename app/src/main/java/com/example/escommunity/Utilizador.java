@@ -30,9 +30,6 @@ public class Utilizador implements Serializable {
         this.pass = pass;
     }
 
-
-
-
     public Boolean getMemorizar() {
         return memorizar;
     }

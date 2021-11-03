@@ -51,7 +51,7 @@ public class RegistarActivity extends AppCompatActivity {
                 String[] emailSplit = email.split("@");
                 email = emailSplit[1];
                 if(!email.equals("alunos.sefo.pt")){
-                    Toast.makeText(getApplicationContext(), "O email deve pertencer á escola!\nemail: " +email, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "O email deve pertencer á escola!", Toast.LENGTH_LONG).show();
                     return;
                 }
                 if(txtPassReg.getText().length() < 6){

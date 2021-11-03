@@ -57,6 +57,7 @@
             android:id="@+id/lblPosts"
             android:layout_width="415dp"
             android:layout_height="492dp"
+            android:scrollbars = "vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

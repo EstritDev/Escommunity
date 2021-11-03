@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +46,9 @@ public class PaginaInicial extends AppCompatActivity {
         EditText txtMsg = findViewById(R.id.txtMsg);
 
 
+        //Colocar os posts com scroll
+        lblPosts.setMovementMethod(new ScrollingMovementMethod());
+
         btnPostar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +71,7 @@ public class PaginaInicial extends AppCompatActivity {
                         //lblPosts.setTextSize(7);
                         lblPosts.append("                               "+ horas);
                         lblPosts.append("\n");
+                        txtMsg.setText("");
                     }
                 });
             }
