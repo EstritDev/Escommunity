@@ -10,86 +10,103 @@
         android:id="@+id/lblTitulo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
         android:layout_marginTop="128dp"
         android:text="Registar"
         android:textColor="#00A6D4"
         android:textSize="40sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtUtilizador"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btnRegistar"
         android:layout_width="180dp"
         android:layout_height="40dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="528dp"
         android:backgroundTint="#00A6D4"
         android:text="Registar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.72" />
 
     <EditText
         android:id="@+id/txtPassReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Palavra-passe"
         android:inputType="textPassword"
         android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail"
+        app:layout_constraintVertical_bias="0.009" />
 
     <EditText
         android:id="@+id/txtConfPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Palavra-passe"
         android:inputType="textPassword"
         android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassReg" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassReg"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/txtUtilizador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="244dp"
         android:ems="10"
         android:hint="Utilizador"
         android:inputType="textPersonName"
         android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.348" />
 
     <EditText
         android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
         android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUtilizador" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUtilizador"
+        app:layout_constraintVertical_bias="0.002" />
 
     <TextView
         android:id="@+id/lblJaTemConta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
         android:layout_marginTop="40dp"
         android:text="Ja tens conta?"
         android:textColor="#0048FF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegistar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistar"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

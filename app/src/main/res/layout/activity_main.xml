@@ -13,12 +13,12 @@
         android:id="@+id/lblTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
         android:layout_marginTop="100dp"
         android:text="Escommunity"
         android:textColor="#00A6D4"
         android:textSize="40sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,9 +26,9 @@
         android:id="@+id/cboxMemorizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:text="Memorizar palavra-passe"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPass" />
 
@@ -36,10 +36,10 @@
         android:id="@+id/btnLogin"
         android:layout_width="180dp"
         android:layout_height="40dp"
-        android:layout_marginStart="112dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="#00A6D4"
         android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cboxMemorizar" />
 
@@ -47,10 +47,10 @@
         android:id="@+id/btnCriarConta"
         android:layout_width="262dp"
         android:layout_height="42dp"
-        android:layout_marginStart="72dp"
         android:layout_marginTop="20dp"
         android:backgroundTint="#00A6D4"
         android:text="Podes criar uma conta"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblOu" />
 
@@ -58,12 +58,12 @@
         android:id="@+id/txtPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Palavra-passe"
         android:inputType="textPassword"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtUser" />
 
@@ -71,12 +71,13 @@
         android:id="@+id/txtUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="236dp"
         android:ems="10"
         android:hint="Utilizador"
         android:inputType="textPersonName"
         android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,9 +85,9 @@
         android:id="@+id/lblOu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
         android:layout_marginTop="20dp"
         android:text="--------ou--------"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 

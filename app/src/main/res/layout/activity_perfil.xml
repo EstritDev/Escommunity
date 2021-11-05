@@ -12,6 +12,7 @@
         android:layout_width="412dp"
         android:layout_height="206dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -22,10 +23,12 @@
         android:id="@+id/imgPfp"
         android:layout_width="138dp"
         android:layout_height="138dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="152dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.22000003"
         app:srcCompat="@drawable/user"
         tools:srcCompat="@drawable/user" />
 
@@ -33,48 +36,108 @@
         android:id="@+id/lblNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
         android:layout_marginTop="4dp"
+        android:gravity="center"
         android:text="Nome de utilizador"
         android:textAlignment="center"
         android:textDirection="ltr"
-        android:textIsSelectable="false"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPfp" />
+        app:layout_constraintTop_toBottomOf="@+id/imgPfp"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/btnEditarPerfil"
         android:layout_width="46dp"
         android:layout_height="45dp"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="232dp"
         android:backgroundTint="#00FFFFFF"
         android:foregroundTint="#00FFFFFF"
         android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgPfp"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.32999998"
         app:srcCompat="@drawable/pencil__1_" />
 
     <TextView
         android:id="@+id/lblDescricao"
         android:layout_width="259dp"
         android:layout_height="81dp"
-        android:layout_marginTop="332dp"
         android:text="Alguma descrição\nsobre o utilizador"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="420dp"
-        android:layout_height="6dp"
-        android:layout_marginTop="408dp"
-        android:background="#00BCD4"
-        android:backgroundTint="#00BCD4"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="68dp"
+        android:foregroundTint="#000000"
+        android:foregroundTintMode="add"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnHome"
+            android:layout_width="81.8dp"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/casa">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="81.8dp"
+            android:layout_height="match_parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="81.8dp"
+            android:layout_height="match_parent">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnMessagens"
+            android:layout_width="81.8dp"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/chat">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnPerfil"
+            android:layout_width="81.8dp"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/user">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="420dp"
+        android:layout_height="6dp"
+        android:background="#00BCD4"
+        android:backgroundTint="#00BCD4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.54">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
