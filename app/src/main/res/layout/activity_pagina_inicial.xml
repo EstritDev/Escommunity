@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#00BCD4"
+    android:fitsSystemWindows="true"
     tools:context=".PaginaInicial">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +16,6 @@
         android:backgroundTint="#00A6D4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.127">
