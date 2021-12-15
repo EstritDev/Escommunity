@@ -38,9 +38,6 @@ public class PaginaInicial extends AppCompatActivity {
         String user = getIntent().getStringExtra("user");
         Boolean memorizar = getIntent().getBooleanExtra("memorizar",false);
 
-        //Labels
-        TextView lblPosts = findViewById(R.id.lblPosts);
-        lblPosts.append("\n");
 
         //Buttons
         Button btnPostar = findViewById(R.id.btnPostar);
@@ -51,9 +48,6 @@ public class PaginaInicial extends AppCompatActivity {
         //EditTexts
         EditText txtMsg = findViewById(R.id.txtMsg);
 
-
-        //Colocar os posts com scroll
-        lblPosts.setMovementMethod(new ScrollingMovementMethod());
 
         btnPostar.setOnClickListener(new View.OnClickListener() {
             @Override
