@@ -3,6 +3,7 @@ package com.example.escommunity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.WindowCompat;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -25,6 +26,7 @@ public class PaginaInicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_inicial);
 
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -56,7 +58,8 @@ public class PaginaInicial extends AppCompatActivity {
                             return;
                         }
                         //Horas
-                        Date agora = new Date();
+
+                       /* Date agora = new Date();
                         SimpleDateFormat sdf = new SimpleDateFormat("K:mm a");
                         String horas = sdf.format(agora);
                         lblPosts.setTextSize(20);
@@ -66,7 +69,7 @@ public class PaginaInicial extends AppCompatActivity {
                         //lblPosts.setTextSize(7);
                         lblPosts.append("                               "+ horas);
                         lblPosts.append("\n");
-                        txtMsg.setText("");
+                        txtMsg.setText("");*/
                     }
                 });
             }

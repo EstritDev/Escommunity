@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("user", user);
                 intent.putExtra("memorizar", memorizar);
-
                 startActivity(intent);
             }
         });
