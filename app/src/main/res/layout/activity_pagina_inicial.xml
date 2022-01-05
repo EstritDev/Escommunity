@@ -8,67 +8,16 @@
     android:fitsSystemWindows="true"
     tools:context=".PaginaInicial">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="408dp"
-        android:layout_height="78dp"
-        android:background="#00A6D4"
-        android:backgroundTint="#00A6D4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.127">
-
-        <EditText
-            android:id="@+id/txtMsg"
-            android:layout_width="234dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="12dp"
-            android:ems="10"
-            android:hint="Escreva algo!"
-            android:inputType="textPersonName"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnPostar"
-            android:layout_width="127dp"
-            android:layout_height="42dp"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="#FFFFFF"
-            android:foregroundTint="#000000"
-            android:text="Publicar"
-            android:textColor="#000000"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
-        android:layout_width="411dp"
-        android:layout_height="494dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"/>
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="409dp"
         android:layout_height="68dp"
-        android:layout_marginTop="494dp"
         android:foregroundTint="#000000"
         android:foregroundTintMode="add"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout3"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btnHome"
@@ -85,8 +34,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnPostar"
             android:layout_width="81.8dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:foreground="@android:drawable/ic_menu_add">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -106,5 +57,32 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPosts"
+        android:layout_width="537dp"
+        android:layout_height="594dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/lblEscommunity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/escommunity"
+        android:textColor="#039BE5"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/txtUtilizador"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

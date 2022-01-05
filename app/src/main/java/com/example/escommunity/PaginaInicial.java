@@ -3,6 +3,9 @@ package com.example.escommunity;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -15,10 +18,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class PaginaInicial extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    RecyclerView.Adapter adaptador;
+    RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,42 +43,21 @@ public class PaginaInicial extends AppCompatActivity {
 
 
         //Buttons
-        Button btnPostar = findViewById(R.id.btnPostar);
+        ConstraintLayout btnPostar = findViewById(R.id.btnPostar);
         ConstraintLayout btnHome = findViewById(R.id.btnHome);
         ConstraintLayout btnPerfil = findViewById(R.id.btnPerfil);
         ConstraintLayout btnMessagens = findViewById(R.id.btnMessagens);
 
-        //EditTexts
-        EditText txtMsg = findViewById(R.id.txtMsg);
+        //Carregar a recycler view
+        recyclerView = findViewById(R.id.rvPosts);
+        Bundle args = getIntent().getBundleExtra("ArrayJogadores");
+        ArrayList<Posts> listaPosts = new ArrayList<Posts>();
 
 
-        btnPostar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Utilizador utilizador = new Utilizador(user,memorizar);
-
-                btnPostar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        if(txtMsg.getText().length() == 0){
-                            return;
-                        }
-                        //Horas
-                        Date agora = new Date();
-                        SimpleDateFormat sdf = new SimpleDateFormat("K:mm a");
-                        String horas = sdf.format(agora);
-                        lblPosts.setTextSize(20);
-                        lblPosts.append(utilizador.getUser() + ":\n");
-                        //lblPosts.setTextSize(14);
-                        lblPosts.append(txtMsg.getText().toString());
-                        //lblPosts.setTextSize(7);
-                        lblPosts.append("                               "+ horas);
-                        lblPosts.append("\n");
-                        txtMsg.setText("");
-                    }
-                });
-            }
-        });
+        MyAdapter meuAdapter = new MyAdapter(listaPosts);
+        recyclerView.setAdapter(meuAdapter);
+        recyclerView.setLayoutManager(layoutManager);
+        setAdapter(listaPosts);
 
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +77,15 @@ public class PaginaInicial extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Ação indisponível", Toast.LENGTH_LONG).show();
             }
         });
+
+        btnPostar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PaginaInicial.this,NovoPostActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onBackPressed() {
@@ -101,5 +97,13 @@ public class PaginaInicial extends AppCompatActivity {
             intent.putExtra("memorizar", memorizar);
             startActivity(intent);
         }
+    }
+
+    private void setAdapter(ArrayList<Posts> listaPosts){
+        MyAdapter adapter = new MyAdapter(listaPosts);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(adapter);
     }
 }
