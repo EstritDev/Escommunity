@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class PerfilActivity extends AppCompatActivity {
 
@@ -26,11 +24,16 @@ public class PerfilActivity extends AppCompatActivity {
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        //buscar a tabela utilizadores
+        UtilizadoresDAO utilizadoresDAO = new UtilizadoresDAO(this);
+
         //Variáveis
-        String user = getIntent().getStringExtra("user");
+        String loginId = getIntent().getStringExtra("loginId");
+        Utilizador utilizador = utilizadoresDAO.getUserData(loginId);
 
         //labels
         TextView lblNome = findViewById(R.id.lblNome);
+        TextView lblDesc = findViewById(R.id.lblDesc);
 
         //Buttons
         ImageButton btnEditarPerfil = findViewById(R.id.btnEditarPerfil);
@@ -39,7 +42,10 @@ public class PerfilActivity extends AppCompatActivity {
         ConstraintLayout btnMessagens = findViewById(R.id.btnMessagens);
 
         //Coloca o nome de utilizador por baixo da foto de perfil
-        lblNome.setText(user);
+        lblNome.setText(utilizador.getNome());
+
+        //Coloca a descrição
+        lblDesc.setText(utilizador.getDesc());
 
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,7 +65,10 @@ public class PerfilActivity extends AppCompatActivity {
         btnEditarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Ação indisponível", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(PerfilActivity.this, EditarPerfilActivity.class);
+                intent.putExtra("loginId", loginId);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
             }
         });
     }

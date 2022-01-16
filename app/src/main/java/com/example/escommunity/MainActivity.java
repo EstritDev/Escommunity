@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //buscar a tabela utilizadores
+        UtilizadoresDAO utilizadoresDAO = new UtilizadoresDAO(this);
+
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
@@ -42,25 +45,21 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String user = "admin";
-                String pass = "admin123";
-                Boolean memorizar = cboxMemorizar.isChecked();
                 if(txtUser.getText().length() <= 0 || txtPass.getText().length() <= 0){
                     Toast.makeText(getApplicationContext(), "Deves preencher todos os campos.", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(!txtUser.getText().toString().equals(user) || !txtPass.getText().toString().equals(pass)){
-                    Toast.makeText(getApplicationContext(), "Dados de inicio de sessão inválidos, tente novamente", Toast.LENGTH_LONG).show();
+                if(utilizadoresDAO.login(txtUser.getText().toString(), txtPass.getText().toString()) == null){
+                    Toast.makeText(getApplicationContext(), "Utilizador ou palavra-passe errados.", Toast.LENGTH_LONG).show();
                     return;
                 }
-
+                Utilizador utilizador = utilizadoresDAO.login(txtUser.getText().toString(), txtPass.getText().toString());
                 Intent intent = new Intent(MainActivity.this, PaginaInicial.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.putExtra("user", user);
-                intent.putExtra("memorizar", memorizar);
-
+                intent.putExtra("loginId", utilizador.getLoginId());
                 startActivity(intent);
             }
+
         });
 
         btnCriarConta.setOnClickListener(new View.OnClickListener() {

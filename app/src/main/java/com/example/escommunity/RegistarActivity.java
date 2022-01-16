@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.text.method.KeyListener;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,10 +17,15 @@ import android.widget.Toast;
 
 public class RegistarActivity extends AppCompatActivity {
 
+    UtilizadoresDAO utilizadoresDAO;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar);
+
+        //tabela utilizadores
+        utilizadoresDAO = new UtilizadoresDAO(this);
 
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -32,6 +41,7 @@ public class RegistarActivity extends AppCompatActivity {
         EditText txtEmail;
         EditText txtPassReg;
         EditText txtConfPass;
+        EditText txtNome;
 
         lblJaTemConta = findViewById(R.id.lblJaTemConta);
         btnRegistar = findViewById(R.id.btnRegistar);
@@ -39,6 +49,7 @@ public class RegistarActivity extends AppCompatActivity {
         txtEmail = findViewById(R.id.txtEmail);
         txtPassReg = findViewById(R.id.txtPassReg);
         txtConfPass = findViewById(R.id.txtConfPass);
+        txtNome = findViewById(R.id.txtNome);
 
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,10 +76,12 @@ public class RegistarActivity extends AppCompatActivity {
 
                 Toast.makeText(getApplicationContext(), "Utilizador registado com sucesso!", Toast.LENGTH_LONG).show();
                 String user = txtUtilizador.getText().toString();
+                String nome = txtNome.getText().toString();
                 Intent intent = new Intent(RegistarActivity.this, PaginaInicial.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("user", user);
                 startActivity(intent);
+                utilizadoresDAO.criarUtilizador(getApplicationContext(), user, nome, email,txtPassReg.getText().toString());
             }
         });
 
@@ -79,5 +92,25 @@ public class RegistarActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+    txtEmail.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            String email = txtEmail.getText().toString();
+            String[] emailSplit = email.split("@");
+            email = emailSplit[0];
+            txtUtilizador.setText(email);
+        }
+    });
     }
 }

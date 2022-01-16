@@ -4,16 +4,23 @@ import java.io.Serializable;
 
 public class Utilizador implements Serializable {
 
-    private String user;
+    private String loginId;
+    private String nome;
     private String email;
     private String pass;
+    private String desc;
 
-    private Boolean memorizar;
 
-    public Utilizador(String user, Boolean memorizar){
-        this.user = user;
-        this.memorizar = memorizar;
+    public Utilizador(String loginId,String nome, String email, String desc){
+        this.loginId = loginId;
+        this.nome = nome;
+        this.email = email;
+        this.desc = desc;
     }
+    public Utilizador(){
+
+    }
+
     public String getEmail() {
         return email;
     }
@@ -30,19 +37,27 @@ public class Utilizador implements Serializable {
         this.pass = pass;
     }
 
-    public Boolean getMemorizar() {
-        return memorizar;
+    public String getLoginId() {
+        return loginId;
     }
 
-    public void setMemorizar(Boolean memorizar) {
-        this.memorizar = memorizar;
+    public void setLoginId(String loginId) {
+        this.loginId = loginId;
     }
 
-    public String getUser() {
-        return user;
+    public String getNome() {
+        return nome;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

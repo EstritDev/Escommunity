@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.view.WindowCompat;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -33,13 +34,13 @@ public class PaginaInicial extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_inicial);
 
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         //Variáveis
-        String user = getIntent().getStringExtra("user");
-        Boolean memorizar = getIntent().getBooleanExtra("memorizar",false);
+        String loginId = getIntent().getStringExtra("loginId");
 
 
         //Buttons
@@ -52,19 +53,28 @@ public class PaginaInicial extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvPosts);
         Bundle args = getIntent().getBundleExtra("ArrayJogadores");
         ArrayList<Posts> listaPosts = new ArrayList<Posts>();
-
-
         MyAdapter meuAdapter = new MyAdapter(listaPosts);
         recyclerView.setAdapter(meuAdapter);
         recyclerView.setLayoutManager(layoutManager);
         setAdapter(listaPosts);
 
+        btnPostar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnPostar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getApplicationContext(), "Ação indisponivel", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PaginaInicial.this,PerfilActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.putExtra("user", user);
+                intent.putExtra("loginId", loginId);
                 startActivity(intent);
 
             }
@@ -86,17 +96,6 @@ public class PaginaInicial extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-    @Override
-    public void onBackPressed() {
-        Boolean memorizar = getIntent().getBooleanExtra("memorizar",false);
-        String user = getIntent().getStringExtra("user");
-        if(memorizar){
-            Intent intent = new Intent(PaginaInicial.this, PaginaInicial.class);
-            intent.putExtra("user", user);
-            intent.putExtra("memorizar", memorizar);
-            startActivity(intent);
-        }
     }
 
     private void setAdapter(ArrayList<Posts> listaPosts){

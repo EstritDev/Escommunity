@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     android:backgroundTint="#00BCD4"
     android:fitsSystemWindows="true"
-    tools:context=".PaginaInicial">
+    tools:context=".PaginaInicial"><![CDATA[
+
+    =======
+
+    >>>>>>> 58225d57f94ca1a03cadaf3d79dd4e29254aacae
+    ]]>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -58,17 +63,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvPosts"
-        android:layout_width="537dp"
-        android:layout_height="594dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
     <TextView
         android:id="@+id/lblEscommunity"
         android:layout_width="wrap_content"
@@ -84,5 +78,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPosts"
+        android:layout_width="416dp"
+        android:layout_height="585dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblEscommunity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

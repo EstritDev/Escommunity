@@ -12,12 +12,15 @@
         android:id="@+id/imgHeader"
         android:layout_width="412dp"
         android:layout_height="206dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="background profile img"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@color/purple_700"
+        tools:ignore="ImageContrastCheck,ImageContrastCheck"
         tools:srcCompat="@color/purple_700" />
 
     <ImageView
@@ -29,7 +32,7 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.22000003"
+        app:layout_constraintVertical_bias="0.25"
         app:srcCompat="@drawable/user"
         tools:srcCompat="@drawable/user" />
 
@@ -53,8 +56,8 @@
 
     <ImageButton
         android:id="@+id/btnEditarPerfil"
-        android:layout_width="46dp"
-        android:layout_height="45dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="88dp"
         android:backgroundTint="#00FFFFFF"
         android:foregroundTint="#00FFFFFF"
@@ -64,18 +67,20 @@
         app:layout_constraintStart_toEndOf="@+id/imgPfp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.32999998"
-        app:srcCompat="@drawable/pencil__1_" />
+        app:srcCompat="@drawable/pencil__1_"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
-        android:id="@+id/lblDescricao"
-        android:layout_width="259dp"
-        android:layout_height="81dp"
+        android:id="@+id/lblDesc"
+        android:layout_width="413dp"
+        android:layout_height="104dp"
         android:text="Alguma descrição\nsobre o utilizador"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.006"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.523" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -99,14 +104,18 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conSearch"
             android:layout_width="81.8dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:foreground="?android:attr/actionModeWebSearchDrawable">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnPostar"
             android:layout_width="81.8dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:foreground="@android:drawable/ic_menu_add">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -128,7 +137,7 @@
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/conLinhaDesc"
         android:layout_width="420dp"
         android:layout_height="6dp"
         android:background="#00BCD4"
@@ -138,7 +147,7 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.54">
+        app:layout_constraintVertical_bias="0.59000003">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
