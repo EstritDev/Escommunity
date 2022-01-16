@@ -53,7 +53,7 @@ public class UtilizadoresDAO {
         String sql = "select * from Utilizadores where loginId='" + loginId + "'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery(sql,null);
-        if(c.getCount() > 1){
+        if(c.getCount() > 0){
             if(!c.moveToFirst()){
                 return null;
             }

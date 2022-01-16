@@ -80,11 +80,11 @@ public class RegistarActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Utilizador registado com sucesso!", Toast.LENGTH_LONG).show();
                 String user = txtUtilizador.getText().toString();
                 String nome = txtNome.getText().toString();
+                utilizadoresDAO.criarUtilizador(getApplicationContext(), user, nome, email,txtPassReg.getText().toString());
                 Intent intent = new Intent(RegistarActivity.this, PaginaInicial.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("user", user);
                 startActivity(intent);
-                utilizadoresDAO.criarUtilizador(getApplicationContext(), user, nome, email,txtPassReg.getText().toString());
             }
         });
 
@@ -112,7 +112,7 @@ public class RegistarActivity extends AppCompatActivity {
             String email = txtEmail.getText().toString();
             String[] emailSplit = email.split("@");
             email = emailSplit[0];
-            txtUtilizador.setText("Utilizador: "+email);
+            txtUtilizador.setText(email);
             txtEmail.getText().toString().trim();
             txtUtilizador.getText().toString().trim();
         }
