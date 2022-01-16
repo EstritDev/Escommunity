@@ -19,7 +19,7 @@ public class UtilizadoresDAO {
         String sql = "select loginId from Utilizadores where loginId='" + loginId +"'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery(sql,null);
-        if(c.getCount() == 1){
+        if(c.getCount() > 0){
             Toast.makeText(ct, "Este utilizador já está registado!", Toast.LENGTH_LONG).show();
             return;
         }
@@ -35,7 +35,10 @@ public class UtilizadoresDAO {
     public Utilizador login(String userLoginId,String pass){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery("select * from Utilizadores where loginId=? and password=?", new String[] {userLoginId,pass});
-        if(c.getCount() == 1){
+        if(c.getCount() > 0){
+            if(!c.moveToFirst()){
+                return null;
+            }
             String nome,email,desc;
             nome = c.getString(c.getColumnIndexOrThrow("nome"));
             email = c.getString(c.getColumnIndexOrThrow("email"));
@@ -50,11 +53,14 @@ public class UtilizadoresDAO {
         String sql = "select * from Utilizadores where loginId='" + loginId + "'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery(sql,null);
-        if(c.getCount() == 1){
+        if(c.getCount() > 1){
+            if(!c.moveToFirst()){
+                return null;
+            }
             String nome,email,desc;
-            nome = c.getString(2);
-            email = c.getString(3);
-            desc = c.getString(5);
+            nome = c.getString(c.getColumnIndexOrThrow("nome"));
+            email = c.getString(c.getColumnIndexOrThrow("email"));
+            desc = c.getString(c.getColumnIndexOrThrow("description"));
             Utilizador utilizador = new Utilizador(loginId,nome,email,desc);
             return utilizador;
         }else {

@@ -13,7 +13,7 @@ public class DBHelper extends SQLiteOpenHelper{
         private static final int versao = 1;
 
         public static final String tableUtilizadores = "create table " + tbUtilizadores
-                + "(_id text primary key autoincrement,"
+                + "(_id integer primary key autoincrement,"
                 + "loginId text not null,"
                 + "nome text not null,"
                 + "email text not null,"
@@ -39,6 +39,7 @@ public class DBHelper extends SQLiteOpenHelper{
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             db.execSQL("DROP TABLE IF EXISTS " + tbUtilizadores);
+            db.execSQL("DROP TABLE IF EXISTS " + tbPosts);
             onCreate(db);
         }
 

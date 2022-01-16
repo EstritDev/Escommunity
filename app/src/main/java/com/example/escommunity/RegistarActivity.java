@@ -51,6 +51,9 @@ public class RegistarActivity extends AppCompatActivity {
         txtConfPass = findViewById(R.id.txtConfPass);
         txtNome = findViewById(R.id.txtNome);
 
+        //Não deixa editar a caixa de texto do utilizador
+        txtUtilizador.setEnabled(false);
+
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -109,7 +112,9 @@ public class RegistarActivity extends AppCompatActivity {
             String email = txtEmail.getText().toString();
             String[] emailSplit = email.split("@");
             email = emailSplit[0];
-            txtUtilizador.setText(email);
+            txtUtilizador.setText("Utilizador: "+email);
+            txtEmail.getText().toString().trim();
+            txtUtilizador.getText().toString().trim();
         }
     });
     }

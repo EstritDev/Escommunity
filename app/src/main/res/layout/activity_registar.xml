@@ -29,6 +29,7 @@
         android:ems="10"
         android:hint="Utilizador"
         android:freezesText="true"
+        android:background="@null"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
