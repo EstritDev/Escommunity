@@ -15,21 +15,23 @@ public class UtilizadoresDAO {
         db = dbHelper.getWritableDatabase();
     }
 
-    public void criarUtilizador(Context ct, String loginId, String nome, String email, String pass){
+    public boolean criarUtilizador(Context ct, String loginId, String nome, String email, String pass){
         String sql = "select loginId from Utilizadores where loginId='" + loginId +"'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery(sql,null);
         if(c.getCount() > 0){
-            Toast.makeText(ct, "Este utilizador já está registado!", Toast.LENGTH_LONG).show();
-            return;
+            return false;
+        }else{
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("loginId",loginId);
+            contentValues.put("nome", nome);
+            contentValues.put("email",email);
+            contentValues.put("password", pass);
+            contentValues.put("description", "Este utilizador ainda não tem descrição definida.");
+            db.insert("Utilizadores",null , contentValues);
+            Toast.makeText(ct, "Utilizador registado com sucesso!", Toast.LENGTH_LONG).show();
+            return true;
         }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("loginId",loginId);
-        contentValues.put("nome", nome);
-        contentValues.put("email",email);
-        contentValues.put("password", pass);
-        contentValues.put("description", "Este utilizador ainda não tem descrição definida.");
-        db.insert("Utilizadores",null , contentValues);
     }
 
     public Utilizador login(String userLoginId,String pass){

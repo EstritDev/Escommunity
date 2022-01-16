@@ -1,27 +1,19 @@
 package com.example.escommunity;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.WindowCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.core.view.WindowCompat;
 
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 public class PaginaInicial extends AppCompatActivity {
 
@@ -39,9 +31,11 @@ public class PaginaInicial extends AppCompatActivity {
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        //Esconder a actionbar(barra com o nome da app no topo)
+        getSupportActionBar().hide();
+
         //Variáveis
         String loginId = getIntent().getStringExtra("loginId");
-
 
         //Buttons
         ConstraintLayout btnPostar = findViewById(R.id.btnPostar);
@@ -49,14 +43,8 @@ public class PaginaInicial extends AppCompatActivity {
         ConstraintLayout btnPerfil = findViewById(R.id.btnPerfil);
         ConstraintLayout btnMessagens = findViewById(R.id.btnMessagens);
 
-        //Carregar a recycler view
-        recyclerView = findViewById(R.id.rvPosts);
-        Bundle args = getIntent().getBundleExtra("ArrayJogadores");
-        ArrayList<Posts> listaPosts = new ArrayList<Posts>();
-        MyAdapter meuAdapter = new MyAdapter(listaPosts);
-        recyclerView.setAdapter(meuAdapter);
-        recyclerView.setLayoutManager(layoutManager);
-        setAdapter(listaPosts);
+        //Carregar os posts
+        carregarPosts();
 
         btnPostar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +81,7 @@ public class PaginaInicial extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(PaginaInicial.this,NovoPostActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.putExtra("loginId", loginId);
                 startActivity(intent);
             }
         });
@@ -104,5 +93,24 @@ public class PaginaInicial extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
+    }
+
+    private void carregarPosts(){
+        //buscar a tabela posts
+        PostsDAO postsDAO = new PostsDAO(this);
+
+        //Carregar a recycler view
+        recyclerView = findViewById(R.id.rvPosts);
+        ArrayList<Posts> listaPosts = postsDAO.getPosts();
+        MyAdapter meuAdapter = new MyAdapter(listaPosts);
+        recyclerView.setAdapter(meuAdapter);
+        recyclerView.setLayoutManager(layoutManager);
+        setAdapter(listaPosts);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        carregarPosts();
     }
 }

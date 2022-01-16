@@ -3,12 +3,12 @@ package com.example.escommunity;
 public class Posts {
     private String user;
     private String conteudo;
-    private String hora;
+    private String dia;
 
-    public Posts(String user, String conteudo, String hora) {
+    public Posts(String user, String conteudo, String dia) {
         this.user = user;
         this.conteudo = conteudo;
-        this.hora = hora;
+        this.dia = dia;
     }
 
     public String getUser() {
@@ -27,12 +27,12 @@ public class Posts {
         this.conteudo = conteudo;
     }
 
-    public String getHora() {
-        return hora;
+    public String getDia() {
+        return dia;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 
 

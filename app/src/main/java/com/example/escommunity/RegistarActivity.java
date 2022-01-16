@@ -1,19 +1,17 @@
 package com.example.escommunity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.text.method.KeyListener;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class RegistarActivity extends AppCompatActivity {
 
@@ -23,6 +21,9 @@ public class RegistarActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registar);
+
+        //Esconder a actionbar(barra com o nome da app no topo)
+        getSupportActionBar().hide();
 
         //tabela utilizadores
         utilizadoresDAO = new UtilizadoresDAO(this);
@@ -76,15 +77,19 @@ public class RegistarActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"As palavras-passe devem ser iguais.", Toast.LENGTH_LONG).show();
                     return;
                 }
-
-                Toast.makeText(getApplicationContext(), "Utilizador registado com sucesso!", Toast.LENGTH_LONG).show();
                 String user = txtUtilizador.getText().toString();
                 String nome = txtNome.getText().toString();
-                utilizadoresDAO.criarUtilizador(getApplicationContext(), user, nome, email,txtPassReg.getText().toString());
-                Intent intent = new Intent(RegistarActivity.this, PaginaInicial.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.putExtra("user", user);
-                startActivity(intent);
+                if(utilizadoresDAO.criarUtilizador(getApplicationContext(), user,nome,email,txtPassReg.getText().toString())){
+                    utilizadoresDAO.criarUtilizador(getApplicationContext(), user, nome, email,txtPassReg.getText().toString());
+                    Utilizador utilizador = utilizadoresDAO.login(user, txtPassReg.getText().toString());
+                    Intent intent = new Intent(RegistarActivity.this, PaginaInicial.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    intent.putExtra("loginId", utilizador.getLoginId());
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(),"Este utilizador já existe, tente fazer login!", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 

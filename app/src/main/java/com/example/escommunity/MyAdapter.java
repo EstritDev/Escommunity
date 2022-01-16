@@ -1,9 +1,11 @@
 package com.example.escommunity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,10 +34,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
                 String user = String.valueOf(listaPosts.get(position).getUser());
                 String conteudo = String.valueOf(listaPosts.get(position).getConteudo());
-                String hora = String.valueOf(listaPosts.get(position).getHora());
+                String dia = String.valueOf(listaPosts.get(position).getDia());
                 holder.lblUser.setText(user);
                 holder.lblConteudo.setText(conteudo);
-                holder.lblHora.setText(hora);
+                holder.lblHora.setText(dia);
+                holder.mainLayout.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                                Intent intent = new Intent(context, EditarPerfilActivity.class);
+                                intent.putExtra("conteudo", String.valueOf(listaPosts.get(holder.getAdapterPosition()).getConteudo()));
+                                context.startActivity(intent);
+                        }
+                });
         }
 
         @Override
@@ -44,12 +54,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         }
 
         public static class ViewHolder extends RecyclerView.ViewHolder{
+                LinearLayout mainLayout;
                 TextView lblUser,lblConteudo,lblHora;
                 public ViewHolder(@NonNull View itemView) {
                         super(itemView);
                         lblUser = itemView.findViewById(R.id.lblUserPost);
                         lblConteudo = itemView.findViewById(R.id.lblConteudoPost);
                         lblHora = itemView.findViewById(R.id.lblHoraPost);
+                        mainLayout = itemView.findViewById(R.id.mainLayout);
                 }
         }
 }

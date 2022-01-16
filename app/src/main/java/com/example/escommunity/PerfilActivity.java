@@ -24,6 +24,9 @@ public class PerfilActivity extends AppCompatActivity {
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        //Esconder a actionbar(barra com o nome da app no topo)
+        getSupportActionBar().hide();
+
         //buscar a tabela utilizadores
         UtilizadoresDAO utilizadoresDAO = new UtilizadoresDAO(this);
 

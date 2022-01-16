@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Escommunity">
         <activity
+            android:name=".EditPostActivity"
+            android:exported="true" />
+        <activity
             android:name=".EditarPerfilActivity"
             android:exported="true" />
         <activity
