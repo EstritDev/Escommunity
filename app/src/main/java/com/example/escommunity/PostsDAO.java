@@ -42,4 +42,15 @@ public class PostsDAO {
         contentValues.put("dia", dia);
         db.insert("Posts",null , contentValues);
     }
+
+    public void eliminarPost(int id){
+        db.delete("Posts", "_idPost=" + id, null);
+    }
+
+    public void editarPost(String conteudo, int id){
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put("conteudo", conteudo);
+        db.update("Posts",cv,"_idPost=" + id,null);
+    }
 }

@@ -3,14 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/activity_edit_post.xml" value="0.18659420289855072" />
         <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/activity_editar_perfil.xml" value="0.1933876811594203" />
         <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/activity_main.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/activity_novo_post.xml" value="0.19739583333333333" />
         <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/activity_pagina_inicial.xml" value="0.20652173913043478" />
         <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/activity_perfil.xml" value="0.33" />
+        <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/activity_procurar.xml" value="0.18659420289855072" />
         <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/activity_registar.xml" value="0.25" />
         <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/rv_mensagem.xml" value="0.2128623188405797" />
         <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/rv_posts.xml" value="0.33" />
+        <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/rv_procurar.xml" value="0.17980072463768115" />
+        <entry key="..\:/Users/35193/AndroidStudioProjects/Escommunity/Escommunity/app/src/main/res/layout/rv_user.xml" value="0.33" />
         <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_edit_post.xml" value="0.2015625" />
         <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_editar_perfil.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_main.xml" value="0.28940217391304346" />

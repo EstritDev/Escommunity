@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Escommunity">
         <activity
+            android:name=".ProcurarActivity"
+            android:exported="true" />
+        <activity
             android:name=".EditPostActivity"
             android:exported="true" />
         <activity

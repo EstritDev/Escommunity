@@ -17,6 +17,9 @@ public class Utilizador implements Serializable {
         this.email = email;
         this.desc = desc;
     }
+    public Utilizador(String loginId, String nome, String desc){
+
+    }
     public Utilizador(){
 
     }

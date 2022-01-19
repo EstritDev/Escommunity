@@ -4,7 +4,10 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class UtilizadoresDAO {
     private final SQLiteDatabase db;
@@ -65,6 +68,50 @@ public class UtilizadoresDAO {
             desc = c.getString(c.getColumnIndexOrThrow("description"));
             Utilizador utilizador = new Utilizador(loginId,nome,email,desc);
             return utilizador;
+        }else {
+            return null;
+        }
+    }
+
+    public ArrayList<Utilizador> getUtilizadores(){
+        String sql = "select * from Utilizadores";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        ArrayList<Utilizador> users = new ArrayList<Utilizador>();
+        Cursor c = db.rawQuery(sql,null);
+        if(c.getCount() > 0){
+            do{
+                String loginId, nome, desc;
+                loginId = c.getString(c.getColumnIndexOrThrow("loginId"));
+                nome = c.getString(c.getColumnIndexOrThrow("nome"));
+                desc = c.getString(c.getColumnIndexOrThrow("description"));
+
+                Utilizador utilizador = new Utilizador(loginId,nome,desc);
+
+                users.add(utilizador);
+            }while (c.moveToFirst());
+            return users;
+        }else{
+            return null;
+        }
+    }
+
+    public ArrayList<Utilizador> procurarUsers(String arg){
+        String sql = "select * from Utilizadores where loginId='%" + arg + "%' or nome='%" + arg + "%'";
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        ArrayList<Utilizador> users = new ArrayList<Utilizador>();
+        Cursor c = db.rawQuery(sql,null);
+        if(c.getCount() > 0){
+            do {
+                String loginId, nome, desc;
+                loginId = c.getString(c.getColumnIndexOrThrow("loginId"));
+                nome = c.getString(c.getColumnIndexOrThrow("nome"));
+                desc = c.getString(c.getColumnIndexOrThrow("description"));
+
+                Utilizador utilizador = new Utilizador(loginId,nome,desc);
+
+                users.add(utilizador);
+            }while (c.moveToFirst());
+            return users;
         }else {
             return null;
         }

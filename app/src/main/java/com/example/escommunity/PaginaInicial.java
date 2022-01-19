@@ -44,7 +44,7 @@ public class PaginaInicial extends AppCompatActivity {
         ConstraintLayout btnMessagens = findViewById(R.id.btnMessagens);
 
         //Carregar os posts
-        carregarPosts();
+        setAdapter();
 
         btnPostar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,30 +87,19 @@ public class PaginaInicial extends AppCompatActivity {
         });
     }
 
-    private void setAdapter(ArrayList<Posts> listaPosts){
-        MyAdapter adapter = new MyAdapter(listaPosts);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-    }
-
-    private void carregarPosts(){
+    private void setAdapter(){
         //buscar a tabela posts
         PostsDAO postsDAO = new PostsDAO(this);
 
         //Carregar a recycler view
         recyclerView = findViewById(R.id.rvPosts);
         ArrayList<Posts> listaPosts = postsDAO.getPosts();
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         MyAdapter meuAdapter = new MyAdapter(listaPosts);
         recyclerView.setAdapter(meuAdapter);
         recyclerView.setLayoutManager(layoutManager);
-        setAdapter(listaPosts);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        carregarPosts();
-    }
+
 }

@@ -21,7 +21,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/lblUserPost"
+                    android:id="@+id/lblUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -44,7 +44,7 @@
                     app:srcCompat="@drawable/user" />
 
                 <TextView
-                    android:id="@+id/lblConteudoPost"
+                    android:id="@+id/lblDescrição"
                     android:layout_width="268dp"
                     android:layout_height="77dp"
                     android:layout_marginStart="1dp"
@@ -62,11 +62,31 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
                     android:text="Hora"
-                    app:layout_constraintBottom_toTopOf="@+id/lblConteudoPost"
+                    app:layout_constraintBottom_toTopOf="@+id/lblDescrição"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.992"
-                    app:layout_constraintStart_toEndOf="@+id/lblUserPost"
+                    app:layout_constraintStart_toEndOf="@+id/lblUser"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imgEditar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="12dp"
+                    app:layout_constraintBottom_toTopOf="@+id/imgEliminar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@android:drawable/ic_menu_edit" />
+
+                <ImageView
+                    android:id="@+id/imgEliminar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="68dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@android:drawable/ic_menu_delete" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
