@@ -21,9 +21,11 @@
         <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_novo_post.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_pagina_inicial.xml" value="0.28940217391304346" />
         <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_perfil.xml" value="0.28940217391304346" />
-        <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_registar.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_procurar.xml" value="0.276268115942029" />
+        <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/activity_registar.xml" value="0.5" />
         <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/rv_mensagem.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/rv_posts.xml" value="0.33" />
+        <entry key="..\:/Users/admin/Desktop/Pastas e etc/android/Escommunity/app/src/main/res/layout/rv_user.xml" value="0.276268115942029" />
       </map>
     </option>
   </component>

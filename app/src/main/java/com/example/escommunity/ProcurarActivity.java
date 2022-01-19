@@ -24,11 +24,17 @@ public class ProcurarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_procurar);
 
+        //Variáveis
+        String loginId = getIntent().getStringExtra("loginId");
+
         //tabela utilizadores
         utilizadoresDAO = new UtilizadoresDAO(this);
 
         EditText txtProcurar;
         txtProcurar = findViewById(R.id.txtProcurar);
+
+        //Carregar utilizadores
+        setAdapter();
 
         txtProcurar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -38,34 +44,42 @@ public class ProcurarActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
+                procurar(txtProcurar.getText().toString());
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                procurarUsers(txtProcurar.getText().toString());
+
             }
         });
     }
 
-    private void setAdapter(ArrayList<Utilizador> listaUtilizadores){
-        UsersAdapter adapter = new UsersAdapter(listaUtilizadores);
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(adapter);
-    }
-
-    private void procurarUsers(String args){
-        //buscar a tabela users
+    private void procurar(String arg){
+        //buscar a tabela utilizadores
         UtilizadoresDAO utilizadoresDAO = new UtilizadoresDAO(this);
 
         //Carregar a recycler view
         recyclerView = findViewById(R.id.rvUtilizadores);
-        ArrayList<Utilizador> listaUtilizadores = utilizadoresDAO.procurarUsers(args);
-        UsersAdapter adapter = new UsersAdapter(listaUtilizadores);
-        recyclerView.setAdapter(adapter);
+        ArrayList<Utilizador> listUtilizadores = utilizadoresDAO.procurarUsers(arg);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        UsersAdapter usersAdapter = new UsersAdapter(listUtilizadores);
+        recyclerView.setAdapter(usersAdapter);
         recyclerView.setLayoutManager(layoutManager);
-        setAdapter(listaUtilizadores);
     }
+
+    private void setAdapter(){
+        //buscar a tabela utilizadores
+        UtilizadoresDAO utilizadoresDAO = new UtilizadoresDAO(this);
+
+        //Carregar a recycler view
+        recyclerView = findViewById(R.id.rvUtilizadores);
+        ArrayList<Utilizador> listUtilizadores = utilizadoresDAO.getUtilizadores();
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
+        UsersAdapter usersAdapter = new UsersAdapter(listUtilizadores);
+        recyclerView.setAdapter(usersAdapter);
+        recyclerView.setLayoutManager(layoutManager);
+    }
+
 }

@@ -24,12 +24,12 @@
 
     <EditText
         android:id="@+id/txtUtilizador"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Utilizador"
-        android:freezesText="true"
+        android:layout_width="276dp"
+        android:layout_height="45dp"
         android:background="@null"
+        android:ems="10"
+        android:freezesText="true"
+        android:hint="Utilizador"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -40,11 +40,11 @@
 
     <EditText
         android:id="@+id/txtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="276dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="E-mail ex: a1234@alunos.sefo.pt"
         android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,8 +56,8 @@
 
     <EditText
         android:id="@+id/txtNome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="276dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Nome"
@@ -72,8 +72,8 @@
 
     <EditText
         android:id="@+id/txtConfPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="276dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Palavra-passe"
@@ -90,20 +90,20 @@
         android:id="@+id/btnRegistar"
         android:layout_width="180dp"
         android:layout_height="40dp"
-        android:backgroundTint="#00A6D4"
         android:layout_marginTop="50dp"
+        android:backgroundTint="#00A6D4"
         android:text="Registar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.793" />
+        app:layout_constraintVertical_bias="0.814" />
 
     <EditText
         android:id="@+id/txtPassReg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="276dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Palavra-passe"

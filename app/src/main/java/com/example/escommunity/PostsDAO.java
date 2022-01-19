@@ -17,17 +17,19 @@ public class PostsDAO {
     }
 
     public ArrayList<Posts> getPosts(){
-        String sql = "select Utilizadores.nome, Posts.conteudo, Posts.dia from Posts inner join Utilizadores on Posts.userId = Utilizadores.loginId";
+        String sql = "select Posts._idPost, Utilizadores.nome, Posts.conteudo, Posts.dia from Posts inner join Utilizadores on Posts.userId = Utilizadores.loginId";
         ArrayList<Posts> listaPosts = new ArrayList<Posts>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery(sql, null);
         String user,conteudo,dia;
+        int idPost;
         if(c.moveToFirst()){
             do{
+                idPost = c.getInt(c.getColumnIndexOrThrow("_idPost"));
                 user = c.getString(c.getColumnIndexOrThrow("nome"));
                 conteudo = c.getString(c.getColumnIndexOrThrow("conteudo"));
                 dia = c.getString(c.getColumnIndexOrThrow("dia"));
-                Posts post = new Posts(user,conteudo,dia);
+                Posts post = new Posts(idPost,user,conteudo,dia);
                 listaPosts.add(post);
             }while (c.moveToNext());
         }

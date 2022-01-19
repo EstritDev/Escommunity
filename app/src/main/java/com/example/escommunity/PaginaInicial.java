@@ -38,25 +38,15 @@ public class PaginaInicial extends AppCompatActivity {
         String loginId = getIntent().getStringExtra("loginId");
 
         //Buttons
-        ConstraintLayout btnPostar = findViewById(R.id.btnPostar);
-        ConstraintLayout btnHome = findViewById(R.id.btnHome);
-        ConstraintLayout btnPerfil = findViewById(R.id.btnPerfil);
-        ConstraintLayout btnMessagens = findViewById(R.id.btnMessagens);
+        ConstraintLayout btnPostar = findViewById(R.id.btnPostarPerfil);
+        ConstraintLayout btnHome = findViewById(R.id.btnHomePerfil);
+        ConstraintLayout btnPerfil = findViewById(R.id.btnPerfilPerfil);
+        ConstraintLayout btnMessagens = findViewById(R.id.btnMessagensPerfil);
+        ConstraintLayout btnProcurar = findViewById(R.id.btnProcurar);
 
         //Carregar os posts
         setAdapter();
 
-        btnPostar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                btnPostar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getApplicationContext(), "Ação indisponivel", Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-        });
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -85,6 +75,25 @@ public class PaginaInicial extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+                startActivity(getIntent());
+            }
+        });
+
+        btnProcurar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PaginaInicial.this, ProcurarActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.putExtra("loginId", loginId);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void setAdapter(){
@@ -101,5 +110,10 @@ public class PaginaInicial extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        setAdapter();
 
+    }
 }

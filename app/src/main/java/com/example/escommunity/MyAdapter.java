@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,9 +32,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-
+                String idPost = String.valueOf(listaPosts.get(position).getIdPost());
                 String user = String.valueOf(listaPosts.get(position).getUser());
-                String id = String.valueOf(listaPosts.get(position));
                 String conteudo = String.valueOf(listaPosts.get(position).getConteudo());
                 String dia = String.valueOf(listaPosts.get(position).getDia());
                 holder.lblUser.setText(user);
@@ -49,7 +45,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         public void onClick(View v) {
                                 Intent intent = new Intent(v.getContext(), EditPostActivity.class);
                                 intent.putExtra("conteudo", conteudo);
-                                intent.putExtra("id",id);
+                                intent.putExtra("idPost", idPost);
                                 v.getContext().startActivity(intent);
                         }
                 });
@@ -57,8 +53,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         @Override
                         public void onClick(View v) {
                                 PostsDAO postsDAO = new PostsDAO(v.getContext());
-                                Toast.makeText(v.getContext(), id, Toast.LENGTH_LONG).show();
-                                postsDAO.eliminarPost(position);
+                                postsDAO.eliminarPost(Integer.parseInt(idPost));
                         }
                 });
         }
@@ -73,8 +68,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 ImageView imgEditar, imgEliminar;
                 public ViewHolder(@NonNull View itemView) {
                         super(itemView);
-                        lblUser = itemView.findViewById(R.id.lblUser);
-                        lblConteudo = itemView.findViewById(R.id.lblDescrição);
+                        lblUser = itemView.findViewById(R.id.lblUserPost);
+                        lblConteudo = itemView.findViewById(R.id.lblConteudo);
                         lblHora = itemView.findViewById(R.id.lblHoraPost);
                         imgEditar = itemView.findViewById(R.id.imgEditar);
                         imgEliminar = itemView.findViewById(R.id.imgEliminar);

@@ -44,6 +44,7 @@ public class EditarPerfilActivity extends AppCompatActivity {
                 }
                 utilizadoresDAO.updateDescricao(loginId, desc);
                 Toast.makeText(getApplicationContext(),"Perfil atualizado com sucesso!", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 

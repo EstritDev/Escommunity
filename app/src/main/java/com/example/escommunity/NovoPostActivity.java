@@ -53,11 +53,10 @@ public class NovoPostActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(txtNovoPost.getText().length() == 0){
-                    Toast.makeText(getApplicationContext(), "Tem escreve alguma coisa.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Tem escrever alguma coisa.", Toast.LENGTH_LONG).show();
                     return;
                 }
                 //Buscar a data atual
-
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar calendar = Calendar.getInstance();
                 String dia = sdf.format(calendar.getTime());
@@ -66,15 +65,8 @@ public class NovoPostActivity extends AppCompatActivity {
                 //Guardar o post na base de dados
                 postsDAO.guardarPost(loginId,txtNovoPost.getText().toString(),dia);
                 txtNovoPost.setText("");
+                finish();
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        Intent setIntent = new Intent(Intent.ACTION_MAIN);
-        setIntent.addCategory(Intent.CATEGORY_HOME);
-        setIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(setIntent);
     }
 }

@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btnHome"
+            android:id="@+id/btnHomePerfil"
             android:layout_width="81.8dp"
             android:layout_height="match_parent"
             android:foreground="@drawable/casa">
@@ -33,13 +33,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnProcurar"
             android:layout_width="81.8dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:foreground="?android:attr/actionModeWebSearchDrawable">
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btnPostar"
+            android:id="@+id/btnPostarPerfil"
             android:layout_width="81.8dp"
             android:layout_height="match_parent"
             android:foreground="@android:drawable/ic_menu_add">
@@ -47,7 +49,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btnMessagens"
+            android:id="@+id/btnMessagensPerfil"
             android:layout_width="81.8dp"
             android:layout_height="match_parent"
             android:foreground="@drawable/chat">
@@ -55,7 +57,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btnPerfil"
+            android:id="@+id/btnPerfilPerfil"
             android:layout_width="81.8dp"
             android:layout_height="match_parent"
             android:foreground="@drawable/user">

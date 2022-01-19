@@ -23,8 +23,7 @@ public class EditPostActivity extends AppCompatActivity {
 
         //Variáveis
         String conteudo = getIntent().getStringExtra("conteudo");
-        String idPost = getIntent().getStringExtra("id");
-        Toast.makeText(getApplicationContext(), idPost, Toast.LENGTH_LONG).show();
+        String idPost = getIntent().getStringExtra("idPost");
 
         //Definir a caixa de texto com o conteudo do post
         txtEditarPost.setText(conteudo);
@@ -37,6 +36,7 @@ public class EditPostActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(txtEditarPost.getText().length() > 0){
                     postsDAO.editarPost(txtEditarPost.getText().toString(), Integer.parseInt(idPost));
+                    finish();
                 }
             }
         });

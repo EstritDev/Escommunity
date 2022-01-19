@@ -13,10 +13,23 @@ import android.widget.Toast;
 
 public class PerfilActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil);
+
+        //labels
+        TextView lblNome = findViewById(R.id.lblNome);
+        TextView lblDesc = findViewById(R.id.lblDesc);
+
+        //Buttons
+        ImageButton btnEditarPerfil = findViewById(R.id.btnEditarPerfil);
+        ConstraintLayout btnHome = findViewById(R.id.btnHomePerfil);
+        ConstraintLayout btnPerfil = findViewById(R.id.btnPerfilPerfil);
+        ConstraintLayout btnMessagens = findViewById(R.id.btnMessagensPerfil);
+        ConstraintLayout btnPostar = findViewById(R.id.btnPostarPerfil);
+        ConstraintLayout btnProcurar = findViewById(R.id.btnProcurarPerfil);
 
         //Tirar as animações
         getWindow().setWindowAnimations(0);
@@ -33,16 +46,6 @@ public class PerfilActivity extends AppCompatActivity {
         //Variáveis
         String loginId = getIntent().getStringExtra("loginId");
         Utilizador utilizador = utilizadoresDAO.getUserData(loginId);
-
-        //labels
-        TextView lblNome = findViewById(R.id.lblNome);
-        TextView lblDesc = findViewById(R.id.lblDesc);
-
-        //Buttons
-        ImageButton btnEditarPerfil = findViewById(R.id.btnEditarPerfil);
-        ConstraintLayout btnHome = findViewById(R.id.btnHome);
-        ConstraintLayout btnPerfil = findViewById(R.id.btnPerfil);
-        ConstraintLayout btnMessagens = findViewById(R.id.btnMessagens);
 
         //Coloca o nome de utilizador por baixo da foto de perfil
         lblNome.setText(utilizador.getNome());
@@ -74,5 +77,39 @@ public class PerfilActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btnPostar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                        Intent intent = new Intent(PerfilActivity.this,NovoPostActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        intent.putExtra("loginId", loginId);
+                        startActivity(intent);
+            }
+        });
+        btnProcurar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PerfilActivity.this, ProcurarActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.putExtra("loginId", loginId);
+                startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        //buscar a tabela utilizadores
+        UtilizadoresDAO utilizadoresDAO = new UtilizadoresDAO(this);
+
+        TextView lblDesc = findViewById(R.id.lblDesc);
+        String loginId = getIntent().getStringExtra("loginId");
+        Utilizador utilizador = utilizadoresDAO.getUserData(loginId);
+
+
+        //Coloca a descrição quando o utilizador voltar a este intent
+        lblDesc.setText(utilizador.getDesc());
     }
 }
