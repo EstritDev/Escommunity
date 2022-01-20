@@ -1,5 +1,6 @@
 package com.example.escommunity;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -72,18 +73,19 @@ public class UtilizadoresDAO {
         }
     }
 
+    @SuppressLint("Range")
     public ArrayList<Utilizador> getUtilizadores(){
         String sql = "select * from Utilizadores";
         ArrayList<Utilizador> users = new ArrayList<Utilizador>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery(sql,null);
-        String loginId,nome, desc;
+        String loginId="",nome="", desc="";
 
-        if(c.moveToFirst()){
+       if(c.moveToFirst()){
             do {
-                loginId = c.getString(c.getColumnIndexOrThrow("loginId"));
-                nome = c.getString(c.getColumnIndexOrThrow("nome"));
-                desc = c.getString(c.getColumnIndexOrThrow("description"));
+                loginId = c.getString(c.getColumnIndex("loginId"));
+                nome = c.getString(c.getColumnIndex("nome"));
+                desc = c.getString(c.getColumnIndex("description"));
                 Utilizador utilizador = new Utilizador(loginId, nome, desc);
                 users.add(utilizador);
             } while (c.moveToNext());
@@ -92,13 +94,13 @@ public class UtilizadoresDAO {
     }
 
     public ArrayList<Utilizador> procurarUsers(String arg){
-        String sql = "select * from Utilizadores where loginId='%" + arg + "%' or nome='%" + arg + "%'";
+        String sql = "select * from Utilizadores where loginId LIKE '%" + arg + "%' or nome like '%" + arg + "%'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         ArrayList<Utilizador> users = new ArrayList<Utilizador>();
         Cursor c = db.rawQuery(sql,null);
-        if(c.getCount() > 0){
+        if(c.moveToFirst()){
             do {
-                String loginId, nome, desc;
+                String loginId="", nome="", desc="";
                 loginId = c.getString(c.getColumnIndexOrThrow("loginId"));
                 nome = c.getString(c.getColumnIndexOrThrow("nome"));
                 desc = c.getString(c.getColumnIndexOrThrow("description"));
@@ -107,10 +109,8 @@ public class UtilizadoresDAO {
 
                 users.add(utilizador);
             }while (c.moveToNext());
-            return users;
-        }else {
-            return null;
         }
+        return users;
     }
 
     public void updateDescricao(String loginId, String descricao){
