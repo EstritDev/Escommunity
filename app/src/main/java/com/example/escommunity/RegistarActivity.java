@@ -64,8 +64,11 @@ public class RegistarActivity extends AppCompatActivity {
                 }
                 String email = txtEmail.getText().toString();
                 String[] emailSplit = email.split("@");
-                email = emailSplit[1];
-                if(!email.equals("alunos.sefo.pt")){
+                if(emailSplit.length < 2){
+                    Toast.makeText(getApplicationContext(), "Tem de preencher o e-mail corretamente!", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if(!emailSplit[1].equals("alunos.sefo.pt")){
                     Toast.makeText(getApplicationContext(), "O email deve pertencer á escola!", Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -118,7 +121,6 @@ public class RegistarActivity extends AppCompatActivity {
             String[] emailSplit = email.split("@");
             email = emailSplit[0];
             txtUtilizador.setText(email);
-            txtEmail.getText().toString().trim();
             txtUtilizador.getText().toString().trim();
         }
     });

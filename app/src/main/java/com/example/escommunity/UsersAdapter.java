@@ -37,8 +37,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         holder.lblUser.setText(user);
         holder.lblLoginId.setText(loginId);
         holder.lblDesc.setText(desc);
-    }
 
+
+    }
 
 
     @Override

@@ -43,8 +43,6 @@ public class ProcurarActivity extends AppCompatActivity {
         EditText txtProcurar;
         txtProcurar = findViewById(R.id.txtProcurar);
 
-        //Carregar utilizadores
-        setAdapter();
 
         txtProcurar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -59,7 +57,9 @@ public class ProcurarActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                procurar(txtProcurar.getText().toString());
+                if(txtProcurar.getText().length() > 0){
+                    procurar(txtProcurar.getText().toString());
+                }
             }
         });
     }
