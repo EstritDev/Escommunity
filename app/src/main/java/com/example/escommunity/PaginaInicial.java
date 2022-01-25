@@ -47,6 +47,8 @@ public class PaginaInicial extends AppCompatActivity {
         //Carregar os posts
         setAdapter();
 
+        UtilizadoresDAO utilizadoresDAO = new UtilizadoresDAO(this);
+
         btnPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

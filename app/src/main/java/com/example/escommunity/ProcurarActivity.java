@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 
@@ -19,22 +21,28 @@ public class ProcurarActivity extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager;
     UtilizadoresDAO utilizadoresDAO;
 
+    ArrayList<Utilizador> listUtilizadores;
+    UsersAdapter usersAdapter = new UsersAdapter(listUtilizadores);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_procurar);
+
+        //Esconder a actionbar(barra com o nome da app no topo)
+        getSupportActionBar().hide();
 
         //Variáveis
         String loginId = getIntent().getStringExtra("loginId");
 
         //tabela utilizadores
         utilizadoresDAO = new UtilizadoresDAO(this);
+        listUtilizadores = new ArrayList<Utilizador>();
 
         EditText txtProcurar;
         txtProcurar = findViewById(R.id.txtProcurar);
 
-        //Carregar utilizadores
-        setAdapter();
 
         txtProcurar.addTextChangedListener(new TextWatcher() {
             @Override
@@ -44,12 +52,14 @@ public class ProcurarActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                procurar(txtProcurar.getText().toString());
+
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if(txtProcurar.getText().length() > 0){
+                    procurar(txtProcurar.getText().toString());
+                }
             }
         });
     }
@@ -74,7 +84,7 @@ public class ProcurarActivity extends AppCompatActivity {
 
         //Carregar a recycler view
         recyclerView = findViewById(R.id.rvUtilizadores);
-        ArrayList<Utilizador> listUtilizadores = utilizadoresDAO.getUtilizadores();
+        listUtilizadores = utilizadoresDAO.getUtilizadores();
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         UsersAdapter usersAdapter = new UsersAdapter(listUtilizadores);

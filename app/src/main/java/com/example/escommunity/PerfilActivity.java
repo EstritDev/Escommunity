@@ -45,7 +45,8 @@ public class PerfilActivity extends AppCompatActivity {
 
         //Variáveis
         String loginId = getIntent().getStringExtra("loginId");
-        Utilizador utilizador = utilizadoresDAO.getUserData(loginId);
+        String userProfileLoginId = getIntent().getStringExtra("userProfileLoginId");
+        Utilizador utilizador = utilizadoresDAO.getUserData(userProfileLoginId);
 
         //Coloca o nome de utilizador por baixo da foto de perfil
         lblNome.setText(utilizador.getNome());
@@ -106,7 +107,8 @@ public class PerfilActivity extends AppCompatActivity {
 
         TextView lblDesc = findViewById(R.id.lblDesc);
         String loginId = getIntent().getStringExtra("loginId");
-        Utilizador utilizador = utilizadoresDAO.getUserData(loginId);
+        String userProfileLoginId = getIntent().getStringExtra("userProfileLoginId");
+        Utilizador utilizador = utilizadoresDAO.getUserData(userProfileLoginId);
 
 
         //Coloca a descrição quando o utilizador voltar a este intent

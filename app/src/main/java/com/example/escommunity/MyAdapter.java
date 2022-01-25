@@ -54,6 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         public void onClick(View v) {
                                 PostsDAO postsDAO = new PostsDAO(v.getContext());
                                 postsDAO.eliminarPost(Integer.parseInt(idPost));
+                                updateItems(listaPosts);
                         }
                 });
         }
@@ -62,6 +63,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         public int getItemCount() {
                 return listaPosts.size();
         }
+
+        public void updateItems(ArrayList<Posts> novaListaPosts) {
+                listaPosts.clear();
+                listaPosts.addAll(novaListaPosts);
+                this.notifyDataSetChanged();
+        }
+
 
         public static class ViewHolder extends RecyclerView.ViewHolder{
                 TextView lblUser,lblConteudo,lblHora;

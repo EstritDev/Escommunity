@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> {
 
-    private ArrayList<Utilizador> listaUtilizadores;
+    ArrayList<Utilizador> listaUtilizadores;
     Context context;
 
     public UsersAdapter(ArrayList<Utilizador> listaUtilizadores){
@@ -37,6 +37,8 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         holder.lblUser.setText(user);
         holder.lblLoginId.setText(loginId);
         holder.lblDesc.setText(desc);
+
+
     }
 
 
@@ -45,7 +47,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         return listaUtilizadores.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView lblUser, lblLoginId, lblDesc;
 
@@ -55,6 +57,12 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             lblUser = itemView.findViewById(R.id.lblUserProc);
             lblLoginId = itemView.findViewById(R.id.lblLoginIdProc);
             lblDesc = itemView.findViewById(R.id.lblDescProc);
+        }
+
+
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }

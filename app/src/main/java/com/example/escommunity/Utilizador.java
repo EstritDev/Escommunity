@@ -18,7 +18,9 @@ public class Utilizador implements Serializable {
         this.desc = desc;
     }
     public Utilizador(String loginId, String nome, String desc){
-
+        this.loginId = loginId;
+        this.nome = nome;
+        this.desc = desc;
     }
     public Utilizador(){
 
