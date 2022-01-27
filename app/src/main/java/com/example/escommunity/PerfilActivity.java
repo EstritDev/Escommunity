@@ -54,10 +54,27 @@ public class PerfilActivity extends AppCompatActivity {
         //Coloca a descrição
         lblDesc.setText(utilizador.getDesc());
 
+        //Coloca o botão de editar
+        Toast.makeText(getApplicationContext(), "loginId: " + loginId + "\n UserProfileId: " + userProfileLoginId, Toast.LENGTH_LONG).show();
+        /*if(loginId.equals(userProfileLoginId)){
+            btnEditarPerfil.setVisibility(View.INVISIBLE);
+        }*/
+
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        btnPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PerfilActivity.this,PerfilActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                intent.putExtra("loginId", loginId);
+                intent.putExtra("userProfileLoginId", loginId);
+                startActivity(intent);
             }
         });
 

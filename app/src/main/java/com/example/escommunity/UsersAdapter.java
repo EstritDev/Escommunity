@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,10 +46,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(context, PerfilActivity.class);
-                //intent.putExtra("userProfileLoginId", String.valueOf(listaUtilizadores.get(position).getLoginId()));
-                //context.startActivity(intent);
-                //Toast.makeText(context, String.valueOf(listaUtilizadores.get(position).getLoginId()), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(view.getContext(), PerfilActivity.class);
+                intent.putExtra("userProfileLoginId", String.valueOf(listaUtilizadores.get(position).getLoginId()));
+                intent.putExtra("loginId", setUserLoginId(loginId));
+                view.getContext().startActivity(intent);
             }
         });
 
@@ -64,7 +65,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView lblUser, lblLoginId, lblDesc;
-        ConstraintLayout mainLayout;
+        LinearLayout mainLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,5 +76,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.ViewHolder> 
             mainLayout = itemView.findViewById(R.id.mainLayout);
 
         }
+    }
+
+    public String setUserLoginId(String loginUserId){
+        String loginUserid = loginUserId;
+        return loginUserid;
     }
 }
