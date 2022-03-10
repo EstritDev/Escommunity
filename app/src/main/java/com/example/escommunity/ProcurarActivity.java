@@ -24,7 +24,7 @@ public class ProcurarActivity extends AppCompatActivity {
     ArrayList<Utilizador> listUtilizadores;
     UsersAdapter usersAdapter = new UsersAdapter(listUtilizadores);
 
-    String loginId = getIntent().getStringExtra("loginId");
+    //String loginId = getIntent().getStringExtra("loginId");
 
 
 
@@ -77,7 +77,7 @@ public class ProcurarActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         UsersAdapter usersAdapter = new UsersAdapter(listUtilizadores);
-        usersAdapter.setUserLoginId(loginId);
+        //usersAdapter.setUserLoginId(loginId);
         recyclerView.setAdapter(usersAdapter);
         recyclerView.setLayoutManager(layoutManager);
     }

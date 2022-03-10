@@ -55,6 +55,7 @@ public class PaginaInicial extends AppCompatActivity {
                 Intent intent = new Intent(PaginaInicial.this,PerfilActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent.putExtra("loginId", loginId);
+                intent.putExtra("userProfileLoginId", loginId);
                 startActivity(intent);
 
             }

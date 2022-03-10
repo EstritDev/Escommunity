@@ -55,7 +55,7 @@ public class PerfilActivity extends AppCompatActivity {
         lblDesc.setText(utilizador.getDesc());
 
         //Coloca o botão de editar
-        Toast.makeText(getApplicationContext(), "loginId: " + loginId + "\n UserProfileId: " + userProfileLoginId, Toast.LENGTH_LONG).show();
+
         /*if(loginId.equals(userProfileLoginId)){
             btnEditarPerfil.setVisibility(View.INVISIBLE);
         }*/

@@ -80,10 +80,10 @@ public class RegistarActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"As palavras-passe devem ser iguais.", Toast.LENGTH_LONG).show();
                     return;
                 }
-                if(txtEmail.getText().length() != 18){
-                    Toast.makeText(getApplicationContext(),"O e-mail deve estar correto!.", Toast.LENGTH_LONG).show();
+                /*if(txtEmail.getText().length() != 18){
+                    Toast.makeText(getApplicationContext(),"O e-mail deve estar correto!", Toast.LENGTH_LONG).show();
                     return;
-                }
+                }*/
                 String user = txtUtilizador.getText().toString();
                 String nome = txtNome.getText().toString();
                 if(utilizadoresDAO.criarUtilizador(getApplicationContext(), user,nome,email,txtPassReg.getText().toString())){

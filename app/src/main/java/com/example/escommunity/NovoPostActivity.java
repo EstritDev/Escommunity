@@ -60,8 +60,6 @@ public class NovoPostActivity extends AppCompatActivity {
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar calendar = Calendar.getInstance();
                 String dia = sdf.format(calendar.getTime());
-
-
                 //Guardar o post na base de dados
                 postsDAO.guardarPost(loginId,txtNovoPost.getText().toString(),dia);
                 txtNovoPost.setText("");
