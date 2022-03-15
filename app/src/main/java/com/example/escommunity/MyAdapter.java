@@ -1,7 +1,9 @@
 package com.example.escommunity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,9 +54,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 holder.imgEliminar.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                                PostsDAO postsDAO = new PostsDAO(v.getContext());
-                                postsDAO.eliminarPost(Integer.parseInt(idPost));
-                                updateItems(listaPosts,v);
+                                AlertDialog.Builder caixa = new AlertDialog.Builder(v.getContext());
+                                caixa.setMessage("Tens a certeza que desejas eliminar esse post?");
+                                caixa.setCancelable(true);
+                                caixa.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                                PostsDAO postsDAO = new PostsDAO(v.getContext());
+                                                postsDAO.eliminarPost(Integer.parseInt(idPost));
+                                                updateItems(listaPosts,v);
+                                        }
+                                });
+                                caixa.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                                dialog.cancel();
+                                        }
+                                });
+                                AlertDialog alertDialog = caixa.create();
+                                alertDialog.show();
                         }
                 });
         }
