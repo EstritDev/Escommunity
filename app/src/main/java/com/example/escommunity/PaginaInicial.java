@@ -29,7 +29,7 @@ public class PaginaInicial extends AppCompatActivity {
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         //Não mudar as cores do layout mesmo que o telemovél esteja em darkmode
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        // AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         //Esconder a actionbar(barra com o nome da app no topo)
         getSupportActionBar().hide();

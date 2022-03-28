@@ -56,7 +56,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         public void onClick(View v) {
                                 AlertDialog.Builder caixa = new AlertDialog.Builder(v.getContext());
                                 caixa.setMessage("Tens a certeza que desejas eliminar esse post?");
-                                caixa.setCancelable(true);
                                 caixa.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
