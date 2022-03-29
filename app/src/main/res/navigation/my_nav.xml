@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/perfilActivity">
+
+    <activity
+        android:id="@+id/perfilActivity"
+        android:name="com.example.escommunity.PerfilActivity"
+        android:label="activity_perfil"
+        tools:layout="@layout/activity_perfil" />
+    <activity
+        android:id="@+id/paginaInicial"
+        android:name="com.example.escommunity.PaginaInicial"
+        android:label="activity_pagina_inicial"
+        tools:layout="@layout/activity_pagina_inicial" />
+    <activity
+        android:id="@+id/procurarActivity"
+        android:name="com.example.escommunity.ProcurarActivity"
+        android:label="activity_procurar"
+        tools:layout="@layout/activity_procurar" />
+    <activity
+        android:id="@+id/novoPostActivity"
+        android:name="com.example.escommunity.NovoPostActivity"
+        android:label="activity_novo_post"
+        tools:layout="@layout/activity_novo_post" />
+</navigation>
