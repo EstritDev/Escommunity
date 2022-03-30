@@ -14,12 +14,11 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.example.escommunity.R;
 import com.example.escommunity.constructors.Utilizador;
 import com.example.escommunity.daos.UtilizadoresDAO;
-import com.example.escommunity.fragmentos.novoPost;
-import com.example.escommunity.fragmentos.pagina_inicial;
-import com.example.escommunity.fragmentos.perfil;
-import com.example.escommunity.fragmentos.procurar;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    public String loginIdG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +62,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Utilizador utilizador = utilizadoresDAO.login(txtUser.getText().toString(), txtPass.getText().toString());
                 Intent intent = new Intent(MainActivity.this, PaginaInicial.class);
+                loginIdG = utilizador.getLoginId();
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                intent.putExtra("loginId", utilizador.getLoginId());
+                intent.putExtra("loginId", loginIdG);
                 startActivity(intent);
             }
 

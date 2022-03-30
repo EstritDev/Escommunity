@@ -22,10 +22,10 @@ import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link procurar#newInstance} factory method to
+ * Use the {@link Procurar#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class procurar extends Fragment {
+public class Procurar extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -48,7 +48,7 @@ public class procurar extends Fragment {
     String loginId;
 
 
-    public procurar() {
+    public Procurar() {
         // Required empty public constructor
     }
 
@@ -61,8 +61,8 @@ public class procurar extends Fragment {
      * @return A new instance of fragment procurar.
      */
     // TODO: Rename and change types and number of parameters
-    public static procurar newInstance(String param1, String param2) {
-        procurar fragment = new procurar();
+    public static Procurar newInstance(String param1, String param2) {
+        Procurar fragment = new Procurar();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
