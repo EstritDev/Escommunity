@@ -10,32 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Escommunity">
         <activity
-            android:name=".ProcurarActivity"
+            android:name=".activities.ProcurarActivity"
             android:exported="true" />
         <activity
-            android:name=".EditPostActivity"
+            android:name=".activities.EditPostActivity"
             android:exported="true" />
         <activity
-            android:name=".EditarPerfilActivity"
+            android:name=".activities.EditarPerfilActivity"
             android:exported="true" />
         <activity
-            android:name=".NovoPostActivity"
+            android:name=".activities.NovoPostActivity"
             android:exported="true" />
         <activity
-            android:name=".PerfilActivity"
+            android:name=".activities.PerfilActivity"
             android:exported="true" />
         <activity
-            android:name=".RegistarActivity"
+            android:name=".activities.RegistarActivity"
             android:exported="true" />
         <activity
-            android:name=".PaginaInicial"
+            android:name=".activities.PaginaInicial"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

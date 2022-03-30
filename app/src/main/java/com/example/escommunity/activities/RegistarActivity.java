@@ -1,4 +1,4 @@
-package com.example.escommunity;
+package com.example.escommunity.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+
+import com.example.escommunity.R;
+import com.example.escommunity.constructors.Utilizador;
+import com.example.escommunity.daos.UtilizadoresDAO;
 
 public class RegistarActivity extends AppCompatActivity {
 

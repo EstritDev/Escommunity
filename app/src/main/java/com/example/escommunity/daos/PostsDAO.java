@@ -1,9 +1,12 @@
-package com.example.escommunity;
+package com.example.escommunity.daos;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.escommunity.DBHelper;
+import com.example.escommunity.constructors.Posts;
 
 import java.util.ArrayList;
 

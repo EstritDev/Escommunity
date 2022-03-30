@@ -3,26 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/perfilActivity">
+    app:startDestination="@id/pagina_inicial">
 
-    <activity
-        android:id="@+id/perfilActivity"
-        android:name="com.example.escommunity.PerfilActivity"
-        android:label="activity_perfil"
-        tools:layout="@layout/activity_perfil" />
-    <activity
-        android:id="@+id/paginaInicial"
-        android:name="com.example.escommunity.PaginaInicial"
-        android:label="activity_pagina_inicial"
-        tools:layout="@layout/activity_pagina_inicial" />
-    <activity
-        android:id="@+id/procurarActivity"
-        android:name="com.example.escommunity.ProcurarActivity"
-        android:label="activity_procurar"
-        tools:layout="@layout/activity_procurar" />
-    <activity
-        android:id="@+id/novoPostActivity"
-        android:name="com.example.escommunity.NovoPostActivity"
-        android:label="activity_novo_post"
-        tools:layout="@layout/activity_novo_post" />
+
+    <fragment
+        android:id="@+id/pagina_inicial"
+        android:name="com.example.escommunity.fragmentos.pagina_inicial"
+        android:label="fragment_pagina_inicial"
+        tools:layout="@layout/fragment_pagina_inicial" />
+    <fragment
+        android:id="@+id/procurar"
+        android:name="com.example.escommunity.fragmentos.procurar"
+        android:label="fragment_procurar"
+        tools:layout="@layout/fragment_procurar" />
+    <fragment
+        android:id="@+id/novoPost"
+        android:name="com.example.escommunity.fragmentos.novoPost"
+        android:label="fragment_novo_post"
+        tools:layout="@layout/fragment_novo_post" />
+    <fragment
+        android:id="@+id/perfil"
+        android:name="com.example.escommunity.fragmentos.perfil"
+        android:label="fragment_perfil"
+        tools:layout="@layout/fragment_perfil" />
 </navigation>

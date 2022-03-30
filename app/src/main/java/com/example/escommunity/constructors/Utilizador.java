@@ -1,4 +1,4 @@
-package com.example.escommunity;
+package com.example.escommunity.constructors;
 
 import java.io.Serializable;
 

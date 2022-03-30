@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:foregroundTint="#000000"
 
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <TextView
         android:id="@+id/lblTitulo"

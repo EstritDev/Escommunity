@@ -2,22 +2,32 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/paginaInicial"
+        android:id="@+id/pagina_inicial"
         android:icon="@drawable/casa"
+        android:visible="true"
+        android:enabled="true"
         android:title="Home" />
     <item
-        android:id="@+id/procurarActivity"
+        android:id="@+id/procurar"
         android:icon="@drawable/search"
+        android:visible="true"
+        android:enabled="true"
         android:title="Pesquisar" />
     <item
-        android:id="@+id/novoPostActivity"
+        android:id="@+id/novoPost"
         android:icon="@drawable/ic_add_post"
+        android:visible="true"
+        android:enabled="true"
         android:title="Novo post" />
     <item
         android:icon="@drawable/ic_message"
+        android:visible="true"
+        android:enabled="true"
         android:title="Mensagens" />
     <item
-        android:id="@+id/perfilActivity"
+        android:id="@+id/perfil"
         android:icon="@drawable/ic_profile"
+        android:visible="true"
+        android:enabled="true"
         android:title="Perfil" />
 </menu>

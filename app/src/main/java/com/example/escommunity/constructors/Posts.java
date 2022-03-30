@@ -1,4 +1,4 @@
-package com.example.escommunity;
+package com.example.escommunity.constructors;
 
 public class Posts {
     private int idPost;

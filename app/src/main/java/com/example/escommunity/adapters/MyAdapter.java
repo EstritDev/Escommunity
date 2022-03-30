@@ -1,4 +1,4 @@
-package com.example.escommunity;
+package com.example.escommunity.adapters;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -13,6 +13,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.escommunity.R;
+import com.example.escommunity.activities.EditPostActivity;
+import com.example.escommunity.constructors.Posts;
+import com.example.escommunity.daos.PostsDAO;
 
 import java.util.ArrayList;
 

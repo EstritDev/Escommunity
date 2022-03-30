@@ -1,22 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:textAlignment="center"
     android:fitsSystemWindows="true"
+    android:textAlignment="center"
     tools:context=".activities.PerfilActivity">
 
     <ImageView
         android:id="@+id/imgHeader"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="206dp"
         android:contentDescription="background profile img"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@color/purple_700"
         tools:ignore="ImageContrastCheck,ImageContrastCheck"
         tools:srcCompat="@color/purple_700" />
@@ -25,14 +26,14 @@
         android:id="@+id/imgPfp"
         android:layout_width="138dp"
         android:layout_height="138dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imgHeader"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25"
-        app:srcCompat="@drawable/user"
-        tools:srcCompat="@drawable/user" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_pfp"
+        tools:srcCompat="@drawable/ic_pfp" />
 
     <TextView
         android:id="@+id/lblNome"
@@ -47,51 +48,50 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgPfp"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <ImageButton
         android:id="@+id/btnEditarPerfil"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="88dp"
         android:backgroundTint="#00FFFFFF"
         android:foregroundTint="#00FFFFFF"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lblDesc"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgPfp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32999998"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toEndOf="@+id/lblNome"
+        app:layout_constraintTop_toBottomOf="@+id/imgHeader"
+        app:layout_constraintVertical_bias="0.538"
         app:srcCompat="@drawable/pencil__1_"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/lblDesc"
-        android:layout_width="413dp"
-        android:layout_height="104dp"
+        android:layout_width="399dp"
+        android:layout_height="101dp"
         android:text="Alguma descrição\nsobre o utilizador"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.523" />
+        app:layout_constraintTop_toBottomOf="@+id/lblNome"
+        app:layout_constraintVertical_bias="0.064" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/conLinhaDesc"
-        android:layout_width="420dp"
-        android:layout_height="6dp"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
         android:background="#00BCD4"
         android:backgroundTint="#00BCD4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.59000003">
+        app:layout_constraintTop_toBottomOf="@+id/lblDesc"
+        app:layout_constraintVertical_bias="0.0">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

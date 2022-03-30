@@ -1,14 +1,14 @@
-package com.example.escommunity;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.escommunity.activities;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.escommunity.R;
+import com.example.escommunity.daos.PostsDAO;
 
 public class EditPostActivity extends AppCompatActivity {
 

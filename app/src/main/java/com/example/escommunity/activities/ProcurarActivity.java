@@ -1,16 +1,19 @@
-package com.example.escommunity;
+package com.example.escommunity.activities;
+
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.SearchView;
+import com.example.escommunity.R;
+import com.example.escommunity.adapters.UsersAdapter;
+import com.example.escommunity.constructors.Utilizador;
+import com.example.escommunity.daos.UtilizadoresDAO;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.escommunity;
+package com.example.escommunity.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-
 import androidx.annotation.NonNull;
-
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.escommunity.R;
+import com.example.escommunity.activities.PerfilActivity;
+import com.example.escommunity.constructors.Utilizador;
 
 import java.util.ArrayList;
 

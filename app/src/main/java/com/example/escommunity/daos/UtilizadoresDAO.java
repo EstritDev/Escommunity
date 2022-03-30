@@ -1,12 +1,13 @@
-package com.example.escommunity;
+package com.example.escommunity.daos;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
+
+import com.example.escommunity.DBHelper;
+import com.example.escommunity.constructors.Utilizador;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,7 @@ public class UtilizadoresDAO {
         }
     }
 
-    public Utilizador login(String userLoginId,String pass){
+    public Utilizador login(String userLoginId, String pass){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery("select * from Utilizadores where loginId=? and password=?", new String[] {userLoginId,pass});
         if(c.getCount() > 0){
