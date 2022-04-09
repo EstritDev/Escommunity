@@ -35,12 +35,12 @@
         tools:srcCompat="@drawable/user" />
 
     <TextView
-        android:id="@+id/lblNome"
+        android:id="@+id/lblNomeFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:gravity="center"
-        android:text="Nome de utilizador"
+        android:text="User name"
         android:textAlignment="center"
         android:textDirection="ltr"
         android:textSize="20sp"
@@ -72,7 +72,7 @@
         android:id="@+id/lblDesc"
         android:layout_width="413dp"
         android:layout_height="104dp"
-        android:text="Alguma descrição\nsobre o utilizador"
+        android:text="Any description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -19,7 +19,7 @@ public class PerfilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_perfil);
 
         //labels
-        TextView lblNome = findViewById(R.id.lblNome);
+        TextView lblNome = findViewById(R.id.lblNomeFragment);
         TextView lblDesc = findViewById(R.id.lblDesc);
 
         //Buttons

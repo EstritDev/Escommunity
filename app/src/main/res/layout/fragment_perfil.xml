@@ -36,12 +36,12 @@
         tools:srcCompat="@drawable/ic_pfp" />
 
     <TextView
-        android:id="@+id/lblNome"
+        android:id="@+id/lblNomeFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:gravity="center"
-        android:text="Nome de utilizador"
+        android:text="User name"
         android:textAlignment="center"
         android:textDirection="ltr"
         android:textSize="20sp"
@@ -63,7 +63,7 @@
         app:layout_constraintBottom_toTopOf="@+id/lblDesc"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.777"
-        app:layout_constraintStart_toEndOf="@+id/lblNome"
+        app:layout_constraintStart_toEndOf="@+id/lblNomeFragment"
         app:layout_constraintTop_toBottomOf="@+id/imgHeader"
         app:layout_constraintVertical_bias="0.538"
         app:srcCompat="@drawable/pencil__1_"
@@ -73,11 +73,11 @@
         android:id="@+id/lblDesc"
         android:layout_width="399dp"
         android:layout_height="101dp"
-        android:text="Alguma descrição\nsobre o utilizador"
+        android:text="Any description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblNome"
+        app:layout_constraintTop_toBottomOf="@+id/lblNomeFragment"
         app:layout_constraintVertical_bias="0.064" />
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -60,8 +60,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                         @Override
                         public void onClick(View v) {
                                 AlertDialog.Builder caixa = new AlertDialog.Builder(v.getContext());
-                                caixa.setMessage("Tens a certeza que desejas eliminar esse post?");
-                                caixa.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                                caixa.setMessage("Are you sure you wanna delete this post?");
+                                caixa.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                                 PostsDAO postsDAO = new PostsDAO(v.getContext());
@@ -69,7 +69,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                                                 updateItems(listaPosts,v);
                                         }
                                 });
-                                caixa.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                                caixa.setNegativeButton("No", new DialogInterface.OnClickListener() {
                                         @Override
                                         public void onClick(DialogInterface dialog, int which) {
                                                 dialog.cancel();

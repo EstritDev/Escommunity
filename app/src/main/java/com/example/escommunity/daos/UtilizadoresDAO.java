@@ -32,7 +32,7 @@ public class UtilizadoresDAO {
             contentValues.put("nome", nome);
             contentValues.put("email",email);
             contentValues.put("password", pass);
-            contentValues.put("description", "Este utilizador ainda não tem descrição definida.");
+            contentValues.put("description", "Any description.");
             db.insert("Utilizadores",null , contentValues);
             return true;
         }

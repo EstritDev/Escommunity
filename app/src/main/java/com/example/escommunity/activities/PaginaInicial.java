@@ -2,8 +2,11 @@ package com.example.escommunity.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.view.WindowCompat;
@@ -17,6 +20,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.escommunity.R;
 import com.example.escommunity.fragmentos.NovoPost;
 import com.example.escommunity.fragmentos.PaginaInicialFragmento;
+import com.example.escommunity.fragmentos.Perfil;
+import com.example.escommunity.fragmentos.Procurar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class PaginaInicial extends AppCompatActivity {
@@ -38,16 +43,53 @@ public class PaginaInicial extends AppCompatActivity {
         //Esconder a actionbar(barra com o nome da app no topo)
         getSupportActionBar().hide();
 
-        PaginaInicialFragmento paginaInicialFragmento = new PaginaInicialFragmento();
-        Bundle bundle = new Bundle();
-        bundle.putString("loginId", loginId);
-        paginaInicialFragmento.setArguments(bundle);
-
         BottomNavigationView bottomNavigationView = findViewById(R.id.menuBottom);
         NavController navController = Navigation.findNavController(this,  R.id.fragment);
         NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
-        Toast.makeText(getApplicationContext(), loginId, Toast.LENGTH_LONG).show();
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                Bundle bundle = new Bundle();
+
+                switch (item.getItemId()){
+                    case R.id.pagina_inicial:
+                        PaginaInicialFragmento paginaInicialFragmento = new PaginaInicialFragmento();
+                        transaction.replace(R.id.fragment,paginaInicialFragmento);
+                        transaction.commit();
+                        return true;
+
+                    case R.id.procurar:
+                        Procurar procurar = new Procurar();
+                        transaction.replace(R.id.fragment, procurar);
+                        transaction.commit();
+                        return true;
+
+                    case R.id.novoPost:
+                        NovoPost novoPost = new NovoPost();
+                        bundle.putString("loginId", loginId);
+                        novoPost.setArguments(bundle);
+                        transaction.replace(R.id.fragment,novoPost);
+                        transaction.commit();
+                        return true;
+
+/*                    case R.id.mensagens:
+                        transaction.replace(R.id.fragment,paginaInicialFragmento);
+                        transaction.commit();
+                        return true;*/
+
+                    case R.id.perfil:
+                        Perfil perfil = new Perfil();
+                        bundle.putString("loginId", loginId);
+                        perfil.setArguments(bundle);
+                        transaction.replace(R.id.fragment,perfil);
+                        transaction.commit();
+                        return true;
+                }
+                return true;
+            }
+        });
     }
 
 }

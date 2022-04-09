@@ -83,6 +83,7 @@ public class PaginaInicialFragmento extends Fragment {
             loginId = dados.getString("loginId");
         }
 
+
         recyclerView = view.findViewById(R.id.rvPosts);
         setAdapter();
         return view;

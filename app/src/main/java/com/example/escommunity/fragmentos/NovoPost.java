@@ -17,6 +17,9 @@ import com.example.escommunity.daos.PostsDAO;
 import com.example.escommunity.daos.UtilizadoresDAO;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link NovoPost#newInstance} factory method to
@@ -69,11 +72,7 @@ public class NovoPost extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-/*        Bundle dados;
-        dados = getArguments();
-        if (dados != null) {
-            loginId = dados.getString("loginId");
-        }*/
+
     }
 
     @Override
@@ -81,10 +80,8 @@ public class NovoPost extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_novo_post, container, false);
 
-        //loginId
-        Bundle dados = getArguments();
-        if(dados != null){
-            loginId = dados.getString("loginId");
+        if(getArguments() != null){
+            loginId = getArguments().getString("loginId");
         }
 
 
@@ -100,21 +97,17 @@ public class NovoPost extends Fragment {
             @Override
             public void onClick(View view) {
                 if (txtNovoPost.getText().length() == 0) {
-                    Toast.makeText(getContext(), "Tem escrever alguma coisa.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "You must type something.", Toast.LENGTH_LONG).show();
                     return;
                 }
-/*                //Buscar a data atual
+                //Buscar a data atual
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Calendar calendar = Calendar.getInstance();
                 String dia = sdf.format(calendar.getTime());
                 //Guardar o post na base de dados
                 postsDAO.guardarPost(loginId, txtNovoPost.getText().toString(), dia);
                 txtNovoPost.setText("");
-                bottomNavigationView = view.findViewById(R.id.menuBottom);
-                //bottomNavigationView.setSelectedItemId(R.id.pagina_inicial);*/
-                Utilizador utilizador = new Utilizador();
-                loginId = utilizador.getLoginId();
-                Toast.makeText(getContext(), "Login id: " + loginId, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "You posted sucessfully", Toast.LENGTH_LONG).show();
 
             }
         });

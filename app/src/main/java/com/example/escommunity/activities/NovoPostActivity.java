@@ -55,7 +55,7 @@ public class NovoPostActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(txtNovoPost.getText().length() == 0){
-                    Toast.makeText(getApplicationContext(), "Tem escrever alguma coisa.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "In order to post you should type anything.", Toast.LENGTH_LONG).show();
                     return;
                 }
                 //Buscar a data atual

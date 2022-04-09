@@ -4,11 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.escommunity.R;
+import com.example.escommunity.daos.UtilizadoresDAO;
+
+import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,6 +37,12 @@ public class Perfil extends Fragment {
 
     //loginId
     String loginId;
+
+    //labels
+    TextView lblNome;
+    TextView lblDesc;
+
+    UtilizadoresDAO utilizadoresDAO;
 
 
     public Perfil() {
@@ -68,12 +79,19 @@ public class Perfil extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+        utilizadoresDAO = new UtilizadoresDAO(view.getContext());
+        lblNome = view.findViewById(R.id.lblNomeFragment);
+        lblDesc = view.findViewById(R.id.lblDesc);
         if(getArguments() != null){
             loginId = getArguments().getString("loginId");
-
+            lblNome.setText(utilizadoresDAO.getUserData(loginId).getNome().toString());
+            lblDesc.setText(utilizadoresDAO.getUserData(loginId).getDesc().toString());
         }
 
+
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_perfil, container, false);
+        return view;
     }
 }

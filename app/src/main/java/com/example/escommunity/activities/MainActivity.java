@@ -53,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(txtUser.getText().length() <= 0 || txtPass.getText().length() <= 0){
-                    Toast.makeText(getApplicationContext(), "Deves preencher todos os campos.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "You should fill all the fields.", Toast.LENGTH_LONG).show();
                     return;
                 }
                 if(utilizadoresDAO.login(txtUser.getText().toString(), txtPass.getText().toString()) == null){
-                    Toast.makeText(getApplicationContext(), "Utilizador ou palavra-passe errados.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Username or password wrong.", Toast.LENGTH_LONG).show();
                     return;
                 }
                 Utilizador utilizador = utilizadoresDAO.login(txtUser.getText().toString(), txtPass.getText().toString());

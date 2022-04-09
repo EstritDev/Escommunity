@@ -44,10 +44,10 @@ public class EditarPerfilActivity extends AppCompatActivity {
                 String desc = txtDescrição.getText().toString();
                 desc.trim();
                 if (desc.length() == 0){
-                    desc = "Este utilizador ainda não tem descrição definida.";
+                    desc = "This user doesn't have the description set yet.";
                 }
                 utilizadoresDAO.updateDescricao(loginId, desc);
-                Toast.makeText(getApplicationContext(),"Perfil atualizado com sucesso!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Profile updated sucessfully!", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
