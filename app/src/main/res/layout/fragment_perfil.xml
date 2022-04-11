@@ -18,9 +18,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@color/purple_700"
+        app:srcCompat="@color/teal_200"
         tools:ignore="ImageContrastCheck,ImageContrastCheck"
-        tools:srcCompat="@color/purple_700" />
+        tools:srcCompat="@color/teal_200" />
+
+
+    <Button
+        android:id="@+id/btnSeguir"
+        android:layout_width="141dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#00A6D4"
+        android:textSize="8dp"
+        android:text="Follow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblNFollowers" />
 
     <ImageView
         android:id="@+id/imgPfp"
@@ -48,26 +61,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgPfp"
-        app:layout_constraintVertical_bias="0.04" />
-
-    <ImageButton
-        android:id="@+id/btnEditarPerfil"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:backgroundTint="#00FFFFFF"
-        android:foregroundTint="#00FFFFFF"
-        android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@+id/lblDesc"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.777"
-        app:layout_constraintStart_toEndOf="@+id/lblNomeFragment"
-        app:layout_constraintTop_toBottomOf="@+id/imgHeader"
-        app:layout_constraintVertical_bias="0.538"
-        app:srcCompat="@drawable/pencil__1_"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintVertical_bias="0.028" />
 
     <TextView
         android:id="@+id/lblDesc"
@@ -78,7 +75,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblNomeFragment"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintVertical_bias="0.235" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/conLinhaDesc"
@@ -94,5 +91,42 @@
         app:layout_constraintVertical_bias="0.0">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/lblNPosts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="8dp"
+        android:text="0\nposts"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/lblDesc"
+        app:layout_constraintEnd_toStartOf="@+id/lblNFollowers"
+        app:layout_constraintHorizontal_bias="0.586"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblNomeFragment"
+        app:layout_constraintVertical_bias="0.088" />
+
+    <TextView
+        android:id="@+id/lblNFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="0\nfollowers"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/lblNFollowing"
+        app:layout_constraintTop_toBottomOf="@+id/lblNomeFragment" />
+
+    <TextView
+        android:id="@+id/lblNFollowing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="112dp"
+        android:text="0\nfollowing"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblNomeFragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

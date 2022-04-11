@@ -4,29 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmentos.Procurar">
+    tools:context=".fragmentos.Followers_or_following">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvUtilizadores"
-        android:layout_width="410dp"
-        android:layout_height="678dp"
+        android:id="@+id/rv_users"
+        android:layout_width="395dp"
+        android:layout_height="722dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtProcurarFragment"
+        app:layout_constraintTop_toBottomOf="@+id/SearchFollowersOrFollowing"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/txtProcurarFragment"
+        android:id="@+id/SearchFollowersOrFollowing"
         android:layout_width="411dp"
         android:layout_height="58dp"
         android:ems="10"
-        android:hint="Search between the stars"
+        android:hint="Search"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.07" />
