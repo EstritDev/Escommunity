@@ -105,6 +105,5 @@ public class PaginaInicialFragmento extends Fragment {
     public void onResume(){
         super.onResume();
         setAdapter();
-
     }
 }

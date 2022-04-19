@@ -6,12 +6,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.MyUniverse.R;
+import com.example.MyUniverse.constructors.Posts;
 import com.example.MyUniverse.constructors.Utilizador;
+import com.example.MyUniverse.daos.PostsDAO;
+import com.example.MyUniverse.daos.SeguidoresDAO;
 
 import java.util.ArrayList;
 
@@ -42,17 +46,15 @@ public class FollowsAdapter extends RecyclerView.Adapter<FollowsAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return 0;
+        return followsList.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView lblUserFollows,lblLoginIdFollows;
-        ImageView imgUserFollows;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             lblLoginIdFollows = itemView.findViewById(R.id.lblLoginIdFollows);
             lblUserFollows = itemView.findViewById(R.id.lblUserFollows);
-            imgUserFollows = itemView.findViewById(R.id.imgUserFollows);
         }
     }
 }

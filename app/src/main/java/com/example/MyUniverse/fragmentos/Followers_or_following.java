@@ -1,5 +1,6 @@
 package com.example.MyUniverse.fragmentos;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.MyUniverse.R;
 import com.example.MyUniverse.adapters.FollowsAdapter;
@@ -93,19 +95,22 @@ public class Followers_or_following extends Fragment {
             userProfileId = dados.getString("userProfileId");
             type = dados.getString("type");
         }
-        setAdapter();
+        setAdapter(view.getContext());
+
         return view;
     }
 
-    private void setAdapter(){
-        SeguidoresDAO seguidoresDAO = new SeguidoresDAO(getContext());
+    private void setAdapter(Context context){
+        SeguidoresDAO seguidoresDAO = new SeguidoresDAO(context);
         if(type.equals("followers")){
             ArrayList<Utilizador> followsList = seguidoresDAO.getUserFollowers(userProfileId);
             recyclerView.setItemAnimator(new DefaultItemAnimator());
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
             FollowsAdapter followsAdapter = new FollowsAdapter(followsList);
             recyclerView.setAdapter(followsAdapter);
             recyclerView.setLayoutManager(layoutManager);
+
+            Toast.makeText(context, followsList.get(0).getNome(), Toast.LENGTH_LONG).show();
         }
     }
 }
