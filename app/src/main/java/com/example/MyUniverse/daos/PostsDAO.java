@@ -20,19 +20,21 @@ public class PostsDAO {
     }
 
     public ArrayList<Posts> getPosts(){
-        String sql = "select Posts._idPost, Utilizadores.nome, Posts.conteudo, Posts.dia from Posts inner join Utilizadores on Posts.userId = Utilizadores.loginId";
+        String sql = "select Posts._idPost, Utilizadores.nome, Posts.conteudo, Posts.dia, Posts.edited, Posts.likes from Posts inner join Utilizadores on Posts.userId = Utilizadores.loginId";
         ArrayList<Posts> listaPosts = new ArrayList<Posts>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery(sql, null);
-        String user,conteudo,dia;
-        int idPost;
+        String user,conteudo,dia, edited;
+        int idPost, likes;
         if(c.moveToFirst()){
             do{
                 idPost = c.getInt(c.getColumnIndexOrThrow("_idPost"));
                 user = c.getString(c.getColumnIndexOrThrow("nome"));
                 conteudo = c.getString(c.getColumnIndexOrThrow("conteudo"));
                 dia = c.getString(c.getColumnIndexOrThrow("dia"));
-                Posts post = new Posts(idPost,user,conteudo,dia);
+                likes = c.getInt(c.getColumnIndexOrThrow("likes"));
+                edited = c.getString(c.getColumnIndexOrThrow("edited"));
+                Posts post = new Posts(idPost,user,conteudo,dia,likes, edited);
                 listaPosts.add(post);
             }while (c.moveToNext());
         }
@@ -44,6 +46,8 @@ public class PostsDAO {
         ContentValues contentValues = new ContentValues();
         contentValues.put("userId", userId);
         contentValues.put("conteudo", conteudo);
+        contentValues.put("likes", 0);
+        contentValues.put("edited", "false");
         contentValues.put("dia", dia);
         db.insert("Posts",null , contentValues);
     }
@@ -56,6 +60,7 @@ public class PostsDAO {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("conteudo", conteudo);
+        cv.put("edited", true);
         db.update("Posts",cv,"_idPost=" + id,null);
     }
 }

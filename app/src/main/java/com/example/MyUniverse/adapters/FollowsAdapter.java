@@ -16,6 +16,7 @@ import com.example.MyUniverse.constructors.Posts;
 import com.example.MyUniverse.constructors.Utilizador;
 import com.example.MyUniverse.daos.PostsDAO;
 import com.example.MyUniverse.daos.SeguidoresDAO;
+import com.example.MyUniverse.daos.UtilizadoresDAO;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,9 @@ public class FollowsAdapter extends RecyclerView.Adapter<FollowsAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         String idUser = String.valueOf(followsList.get(position).getLoginId());
-        String user = String.valueOf(followsList.get(position).getNome());
+        UtilizadoresDAO utilizadoresDAO = new UtilizadoresDAO(holder.itemView.getContext());
+        String user = String.valueOf(utilizadoresDAO.getUserData(idUser).getNome());
+
 
         holder.lblUserFollows.setText(user);
         holder.lblLoginIdFollows.setText(idUser);

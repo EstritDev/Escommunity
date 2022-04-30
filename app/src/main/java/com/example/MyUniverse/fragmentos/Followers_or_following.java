@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.MyUniverse.R;
@@ -49,6 +50,8 @@ public class Followers_or_following extends Fragment {
 
     //User login id profile
     String userProfileId;
+
+    TextView lblFollowersOrFollow;
 
     //bundle
     Bundle dados;
@@ -89,28 +92,47 @@ public class Followers_or_following extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_followers_or_following, container, false);
         recyclerView = view.findViewById(R.id.rv_users);
+        lblFollowersOrFollow = view.findViewById(R.id.lblNoFollowersOrFollowing);
+        lblFollowersOrFollow.setVisibility(view.INVISIBLE);
         dados = getArguments();
         if(dados != null){
             loginId = dados.getString("loginId");
             userProfileId = dados.getString("userProfileId");
             type = dados.getString("type");
         }
-        setAdapter(view.getContext());
+        setAdapter(view.getContext(), view);
 
         return view;
     }
 
-    private void setAdapter(Context context){
+    private void setAdapter(Context context, View view){
         SeguidoresDAO seguidoresDAO = new SeguidoresDAO(context);
         if(type.equals("followers")){
             ArrayList<Utilizador> followsList = seguidoresDAO.getUserFollowers(userProfileId);
-            recyclerView.setItemAnimator(new DefaultItemAnimator());
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
-            FollowsAdapter followsAdapter = new FollowsAdapter(followsList);
-            recyclerView.setAdapter(followsAdapter);
-            recyclerView.setLayoutManager(layoutManager);
-
-            Toast.makeText(context, followsList.get(0).getNome(), Toast.LENGTH_LONG).show();
+            if(followsList.size() == 0){
+                lblFollowersOrFollow.setText("You don't have any followers.");
+                lblFollowersOrFollow.setVisibility(view.VISIBLE);
+            }else{
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
+                FollowsAdapter followsAdapter = new FollowsAdapter(followsList);
+                recyclerView.setAdapter(followsAdapter);
+                recyclerView.setLayoutManager(layoutManager);
+                lblFollowersOrFollow.setVisibility(view.INVISIBLE);
+            }
+        }else if(type.equals("following")){
+            ArrayList<Utilizador> followsList = seguidoresDAO.getWhoUserFollows(userProfileId);
+            if(followsList.size() == 0){
+                lblFollowersOrFollow.setText("You don't have any followers.");
+                lblFollowersOrFollow.setVisibility(view.VISIBLE);
+            }else{
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(context);
+                FollowsAdapter followsAdapter = new FollowsAdapter(followsList);
+                recyclerView.setAdapter(followsAdapter);
+                recyclerView.setLayoutManager(layoutManager);
+                lblFollowersOrFollow.setVisibility(view.INVISIBLE);
+            }
         }
     }
 }

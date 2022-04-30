@@ -5,13 +5,34 @@ public class Posts {
     private String user;
     private String conteudo;
     private String dia;
+    private int likes;
+    private String edited;
 
-    public Posts(int idPost, String user, String conteudo, String dia) {
+    public Posts(int idPost, String user, String conteudo, String dia, int likes, String edited) {
         this.idPost = idPost;
         this.user = user;
         this.conteudo = conteudo;
         this.dia = dia;
+        this.likes = likes;
+        this.edited = edited;
     }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public String getEdited() {
+        return edited;
+    }
+
+    public void setEdited(String edited) {
+        this.edited = edited;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
 
     public int getIdPost() {
         return idPost;

@@ -149,6 +149,20 @@ public class Perfil extends Fragment {
             }
         });
 
+        lblFollowing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                Followers_or_following followers_or_following = new Followers_or_following();
+                Bundle bundle = new Bundle();
+                bundle.putString("loginId", loginId);
+                bundle.putString("userProfileId", userProfileId);
+                bundle.putString("type", "following");
+                followers_or_following.setArguments(bundle);
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment, followers_or_following).commit();
+            }
+        });
+
         // Inflate the layout for this fragment
         return view;
     }

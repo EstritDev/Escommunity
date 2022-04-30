@@ -74,4 +74,20 @@ public class SeguidoresDAO {
         }
         return users;
     }
+
+    public ArrayList<Utilizador> getWhoUserFollows(String userId){
+        String sql = "SELECT seguiu FROM Seguidores WHERE pessoa='" + userId + "'";
+        ArrayList<Utilizador> users = new ArrayList<Utilizador>();
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor c = db.rawQuery(sql, null);
+        String person;
+        if(c.moveToFirst()){
+            do {
+                person = c.getString(c.getColumnIndexOrThrow("seguiu"));
+                Utilizador utilizador = new Utilizador(person);
+                users.add(utilizador);
+            }while (c.moveToNext());
+        }
+        return users;
+    }
 }
