@@ -20,7 +20,7 @@ public class UtilizadoresDAO {
         db = dbHelper.getWritableDatabase();
     }
 
-    public boolean criarUtilizador(Context ct, String loginId, String nome, String email, String pass){
+    public boolean criarUtilizador(Context ct, String loginId, String nome, String email, String pass, String cor){
         String sql = "select loginId from Utilizadores where loginId='" + loginId +"'";
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor c = db.rawQuery(sql,null);
@@ -33,6 +33,7 @@ public class UtilizadoresDAO {
             contentValues.put("email",email);
             contentValues.put("password", pass);
             contentValues.put("description", "Any description.");
+            contentValues.put("corBackground", cor);
             db.insert("Utilizadores",null , contentValues);
             return true;
         }
@@ -63,11 +64,12 @@ public class UtilizadoresDAO {
             if(!c.moveToFirst()){
                 return null;
             }
-            String nome,email,desc;
+            String nome,email,desc, bgColor;
             nome = c.getString(c.getColumnIndexOrThrow("nome"));
             email = c.getString(c.getColumnIndexOrThrow("email"));
             desc = c.getString(c.getColumnIndexOrThrow("description"));
-            Utilizador utilizador = new Utilizador(loginId,nome,email,desc);
+            bgColor = c.getString(c.getColumnIndexOrThrow("corBackground"));
+            Utilizador utilizador = new Utilizador(loginId,nome,email,desc, bgColor);
             return utilizador;
         }else {
             return null;

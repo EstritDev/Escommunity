@@ -20,7 +20,8 @@ public class DBHelper extends SQLiteOpenHelper{
                 + "nome text not null,"
                 + "email text not null,"
                 + "password text not null,"
-                + "description text not null)";
+                + "description text not null,"
+                + "corBackground text not null)";
 
         public static final String tablePosts = "create table " + tbPosts
                 + "(_idPost integer primary key autoincrement,"

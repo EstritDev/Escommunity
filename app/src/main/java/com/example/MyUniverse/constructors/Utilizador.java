@@ -9,9 +9,17 @@ public class Utilizador implements Serializable {
     private String email;
     private String pass;
     private String desc;
+    private String cor;
 
+    public Utilizador(String loginId, String nome, String email, String desc, String cor) {
+        this.loginId = loginId;
+        this.nome = nome;
+        this.email = email;
+        this.desc = desc;
+        this.cor = cor;
+    }
 
-    public Utilizador(String loginId,String nome, String email, String desc){
+    public Utilizador(String loginId, String nome, String email, String desc){
         this.loginId = loginId;
         this.nome = nome;
         this.email = email;
@@ -69,4 +77,13 @@ public class Utilizador implements Serializable {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
 }

@@ -90,7 +90,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsAdapter.ViewHolder> 
                 holder.imgLike.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                                if(holder.imgLike.source)
+                                //if(holder.imgLike.source)
                         }
                 });
         }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +51,9 @@ public class Perfil extends Fragment {
     //users dao
     UtilizadoresDAO utilizadoresDAO;
     SeguidoresDAO seguidoresDAO;
+
+    //ImageViews
+    ImageView imageView;
 
     //buttons
     Button btnSeguir;
@@ -98,6 +102,7 @@ public class Perfil extends Fragment {
         lblFollowers = view.findViewById(R.id.lblNFollowers);
         lblFollowing = view.findViewById(R.id.lblNFollowing);
         btnSeguir = view.findViewById(R.id.btnSeguir);
+        imageView = view.findViewById(R.id.imgHeader);
 
         if(getArguments() != null){
             loginId = getArguments().getString("loginId");
@@ -106,6 +111,10 @@ public class Perfil extends Fragment {
             lblDesc.setText(utilizadoresDAO.getUserData(userProfileId).getDesc().toString());
             lblFollowers.setText(String.valueOf(seguidoresDAO.countFollowers(userProfileId)) + "\n followers");
             lblFollowing.setText(String.valueOf(seguidoresDAO.countFollowing(userProfileId)) + "\n following");
+        }
+
+        if(utilizadoresDAO.getUserData(userProfileId).getCor() != "nenhum"){
+            imageView.setBackgroundColor(Integer.parseInt(utilizadoresDAO.getUserData(userProfileId).getCor()));
         }
 
         if(!loginId.equals(userProfileId)){
@@ -124,9 +133,11 @@ public class Perfil extends Fragment {
                 if(btnSeguir.getText().equals("Follow")){
                     seguidoresDAO.follow(loginId,userProfileId);
                     btnSeguir.setText("Following");
+                    lblFollowers.setText(seguidoresDAO.countFollowers(userProfileId) + "\n followers");
                 }else if(btnSeguir.getText().equals("Following")){
                     seguidoresDAO.unfollow(loginId, userProfileId);
                     btnSeguir.setText("Follow");
+                    lblFollowers.setText(seguidoresDAO.countFollowers(userProfileId) + "\n followers");
                 }else if(btnSeguir.getText().equals("Edit profile")){
                     Intent intent = new Intent(getActivity(), EditarPerfilActivity.class);
                     intent.putExtra("loginId", loginId);

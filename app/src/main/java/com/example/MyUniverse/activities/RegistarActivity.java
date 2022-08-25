@@ -1,6 +1,7 @@
 package com.example.MyUniverse.activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,6 +17,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.example.MyUniverse.R;
 import com.example.MyUniverse.constructors.Utilizador;
 import com.example.MyUniverse.daos.UtilizadoresDAO;
+
+import java.util.Random;
 
 public class RegistarActivity extends AppCompatActivity {
 
@@ -83,9 +86,13 @@ public class RegistarActivity extends AppCompatActivity {
                 }
                 String user = txtUtilizador.getText().toString();
                 String nome = txtNome.getText().toString();
-                if(utilizadoresDAO.criarUtilizador(getApplicationContext(), user,nome,email,txtPassReg.getText().toString())){
-                    utilizadoresDAO.criarUtilizador(getApplicationContext(), user, nome, email,txtPassReg.getText().toString());
+                Random rnd = new Random();
+                int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+
+                if(utilizadoresDAO.criarUtilizador(getApplicationContext(), user,nome,email,txtPassReg.getText().toString(), color.toString())){
+                    utilizadoresDAO.criarUtilizador(getApplicationContext(), user, nome, email,txtPassReg.getText().toString(), color.toString());
                     Utilizador utilizador = utilizadoresDAO.login(user, txtPassReg.getText().toString());
+
                     Intent intent = new Intent(RegistarActivity.this, PaginaInicial.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     intent.putExtra("loginId", utilizador.getLoginId());
